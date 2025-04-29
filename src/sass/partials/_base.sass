@@ -3,8 +3,71 @@
 @use "./_mixins" as *
 
 
-#loginBox
+#backgroundPopUp
+    width: 100vw
+    height: 100vh
+    background-color: rgba(0,0,0,0.5)
+    z-index: 11
+    position: absolute
+    @include centerAll()
     display: none
+#loginBox
+    background-color: $noir
+    color: white
+    z-index: 12
+    padding-top: 100px
+    padding-bottom: 100px
+    width: 50%
+    @include centerAll()
+    display: none
+    flex-direction: column
+    position: relative
+    #login
+        display: none
+        flex-direction: column
+        width: 70%
+        text-align: center
+        z-index: 13
+        #inscription
+            cursor: pointer
+            @include transitionClassique()
+        #inscription:hover
+            color: $accent
+        h2
+            border-bottom: 2px solid gray
+            padding-bottom: 10px
+            font-size: 3rem
+        form
+            display: flex
+            flex-direction: column
+            gap: 25px
+            margin-bottom: 25px
+    #btnFermer
+        cursor: pointer
+        position: absolute
+        top: 10px
+        right: 10px
+        font-size: 20px
+    #register
+        display: none
+        flex-direction: column
+        width: 70%
+        text-align: center
+        z-index: 13
+        #connexion
+            cursor: pointer
+            @include transitionClassique()
+        #connexion:hover
+            color: $accent
+        h2
+            border-bottom: 2px solid gray
+            padding-bottom: 10px
+            font-size: 3rem
+        form
+            display: flex
+            flex-direction: column
+            gap: 25px
+            margin-bottom: 25px
 
 body
     display: flex
@@ -251,14 +314,14 @@ footer
                 flex-direction: column
                 gap: 30px
                 width: 100%
-                input
-                    background-color: $noir
-                    border: none
-                    border-bottom: 1px solid gray
-                    height: 40px
-                input::placeholder
-                    color: white
-                    font-weight: bolder
+                // input
+                //     background-color: $noir
+                //     border: none
+                //     border-bottom: 1px solid gray
+                //     height: 40px
+                // input::placeholder
+                //     color: white
+                //     font-weight: bolder
                 textarea
                     height: 40px
                     background-color: $noir
@@ -346,6 +409,7 @@ footer
     border-radius: 5px
     padding: 10px 25px
     @include transitionClassique()
+    font-weight: 500
 .btnClassique:hover
     background-color: rgb(233, 110, 161)
 .titreSection
@@ -368,7 +432,18 @@ footer
     border: none
     padding: 10px 25px
     @include transitionClassique()
+    font-weight: bold
     
 .btnForm:hover
     background-color: white
     color: black
+
+.inputForm
+    background-color: $noir
+    border: none
+    border-bottom: 1px solid gray
+    height: 40px
+    color: white
+.inputForm::placeholder
+    color: white
+    font-weight: bolder

@@ -10466,8 +10466,88 @@ readers do not read off random characters that represent icons */
   --fa: "\f3f6";
 }
 
-#loginBox {
+#backgroundPopUp {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 11;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   display: none;
+}
+
+#loginBox {
+  background-color: rgb(33, 33, 33);
+  color: white;
+  z-index: 12;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+  flex-direction: column;
+  position: relative;
+}
+#loginBox #login {
+  display: none;
+  flex-direction: column;
+  width: 70%;
+  text-align: center;
+  z-index: 13;
+}
+#loginBox #login #inscription {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#loginBox #login #inscription:hover {
+  color: rgb(251, 138, 186);
+}
+#loginBox #login h2 {
+  border-bottom: 2px solid gray;
+  padding-bottom: 10px;
+  font-size: 3rem;
+}
+#loginBox #login form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 25px;
+}
+#loginBox #btnFermer {
+  cursor: pointer;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px;
+}
+#loginBox #register {
+  display: none;
+  flex-direction: column;
+  width: 70%;
+  text-align: center;
+  z-index: 13;
+}
+#loginBox #register #connexion {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+#loginBox #register #connexion:hover {
+  color: rgb(251, 138, 186);
+}
+#loginBox #register h2 {
+  border-bottom: 2px solid gray;
+  padding-bottom: 10px;
+  font-size: 3rem;
+}
+#loginBox #register form {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 25px;
 }
 
 body {
@@ -10814,16 +10894,6 @@ footer #footerTop #footerLeft form {
   gap: 30px;
   width: 100%;
 }
-footer #footerTop #footerLeft form input {
-  background-color: rgb(33, 33, 33);
-  border: none;
-  border-bottom: 1px solid gray;
-  height: 40px;
-}
-footer #footerTop #footerLeft form input::placeholder {
-  color: white;
-  font-weight: bolder;
-}
 footer #footerTop #footerLeft form textarea {
   height: 40px;
   background-color: rgb(33, 33, 33);
@@ -10934,6 +11004,7 @@ footer #footerBot p {
   border-radius: 5px;
   padding: 10px 25px;
   transition: 0.3s ease;
+  font-weight: 500;
 }
 
 .btnClassique:hover {
@@ -10962,11 +11033,25 @@ footer #footerBot p {
   border: none;
   padding: 10px 25px;
   transition: 0.3s ease;
+  font-weight: bold;
 }
 
 .btnForm:hover {
   background-color: white;
   color: black;
+}
+
+.inputForm {
+  background-color: rgb(33, 33, 33);
+  border: none;
+  border-bottom: 1px solid gray;
+  height: 40px;
+  color: white;
+}
+
+.inputForm::placeholder {
+  color: white;
+  font-weight: bolder;
 }
 
 /*!

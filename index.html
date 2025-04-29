@@ -9,38 +9,40 @@
 </head>
 <body>
 
-    <div id="loginBox">
-        <i class="fa-solid fa-circle-xmark"></i>
-        <div id="login">
-            <h2 class="titreLogin">Login</h2>
-            <form action="">
-                <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
-                <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
-                <button type="submit" class="btnForm">SEND</button>
-            </form>
-            <p>No accout yet ? <span id="registerBtn">Register</span></p>
-        </div>
-        <div id="register">
-            <h2 class="titreLogin">Register</h2>
-            <form action="">
-                <input type="text" class="inputForm" placeholder="NAME">
-                <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
-                <input type="tel" name="" id="" class="inputForm" placeholder="PHONE NUMBER">
-                <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
-                <button type="submit" class="btnForm">SEND</button>
-            </form>
-            <p>You already have an account ? <span id="LoginBtn">Login</span></p>
+    <div id="backgroundPopUp">
+        <div id="loginBox">
+            <i class="fa-solid fa-circle-xmark" id="btnFermer"></i>
+            <div id="login">
+                <h2 class="titreLogin">Login</h2>
+                <form action="">
+                    <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
+                    <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
+                    <button type="submit" class="btnForm">SEND</button>
+                </form>
+                <p>No accout yet ? <span id="inscription">Register</span></p>
+            </div>
+            <div id="register">
+                <h2 class="titreLogin">Register</h2>
+                <form action="">
+                    <input type="text" class="inputForm" placeholder="NAME">
+                    <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
+                    <input type="tel" name="" id="" class="inputForm" placeholder="PHONE NUMBER">
+                    <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
+                    <button type="submit" class="btnForm">SEND</button>
+                </form>
+                <p>You already have an account ? <span id="connexion">Login</span></p>
+            </div>
         </div>
     </div>
 
     <nav>
         <img src="./public/assets/images/logo.png" alt="">
         <ul>
-            <li><a href="#" class="navActive">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Icecream</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Blog</a></li>
+            <li><a href="#" class="navActive navElement">Home</a></li>
+            <li><a href="#about" class="navElement">About</a></li>
+            <li><a href="#features" class="navElement">Icecream</a></li>
+            <li><a href="#services" class="navElement">Services</a></li>
+            <li><a href="#testimonial" class="navElement">Blog</a></li>
         </ul>
         <div>
             <button id="btnLogin">Login<i class="fa-solid fa-user"></i></button>
@@ -49,7 +51,7 @@
         </div>
     </nav>
 
-    <header>
+    <header id="header">
         <section>
             <div>
                 <h1>Ice<br>Cream</h1>
