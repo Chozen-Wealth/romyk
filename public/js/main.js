@@ -68,17 +68,13 @@ btnLogin.addEventListener("click", ()=>{
     login.style.display = "flex"
     loginBox.style.display = "flex"
     register.style.display = "none"
-    body.style.position = "fixed"
-    body.style.width = "100%"
-    body.style.overflowY = "scroll"
+    body.style.overflowY = "hidden"
 })
 btnFermer.addEventListener("click", ()=>{
     backgroundPopUp.style.display = "none"
     login.style.display = "none"
     loginBox.style.display = "none"
     register.style.display = "none"
-    body.style.position = ""
-    body.style.width = ""
     body.style.overflowY = ""
 })
 
@@ -99,8 +95,6 @@ backgroundPopUp.addEventListener("click", ()=>{
     loginBox.style.display = "none"
     login.style.display = "none"
     register.style.display = "none"
-    body.style.position = ""
-    body.style.width = ""
     body.style.overflowY = ""
 })
 loginBox.addEventListener("click", (e) => {

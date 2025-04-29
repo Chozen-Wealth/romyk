@@ -3,11 +3,41 @@
 @use "./_mixins" as *
 @use "./_base" as *
 
-// PC
-@media (min-width:992px)
+// PC SMALL
+@media (min-width:768px) and (max-width:1024px)
+    .basCarte
+        h3
+            font-size: 18px
+    #servicesCartes
+        justify-content: center !important
+        flex-wrap: wrap
+        gap: 25px
+    #footerRight
+        >div:first-of-type
+            flex-direction: column
+        >div:last-of-type
+            form
+                left: 0% !important
+                width: 100% !important
+                position: static !important
+                input
+                    width: 100% !important
+            h2
+                left: 0% !important
+                width: 100% !important
+                position: static !important
+    #about
+        flex-direction: column
+        @include centerAll()
+        img
+            width: 20%
+        div
+            width: 100%
+            p
+                text-wrap: nowrap
 
 // TABLETTE
-@media (min-width:768px) and (max-width:992px)
+@media (min-width:425px) and (max-width:768px)
 
 // MOBILE
-@media (max-width:768px)
+@media (max-width:425px)
