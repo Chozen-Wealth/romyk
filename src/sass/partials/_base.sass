@@ -182,18 +182,16 @@ header
         align-items: center !important
         // background-color: red
         width: 80%
-        height: 300px
+        height: 280px
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
         .carousel-inner
             text-align: center
             margin-right: 20px
             margin-left: 20px
-            overflow: visible
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
             .carousel-item
-                margin-top: 50px
+                margin-top: 150px
                 position: relative
-                overflow: visible
-                height: 250px
+                height: 350px
                 h5
                     font-weight: bolder
                 img
@@ -202,8 +200,7 @@ header
                     width: 200px
                     margin-top: 20px
                     left: calc( 50% - 100px )
-                // box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
-        
+                    
     .ctrl
         background-color: $accent
         height: 50px
@@ -214,8 +211,70 @@ header
         top: calc( 50% - 25px )
     .ctrl:hover
         background-color: black
-    
+    .carousel-control-prev
+        left: -25px
+    .carousel-control-next
+        right: -25px
 
+footer
+    width: 100%
+    color: white
+    background-color: $noir
+    @include centerAll()
+    flex-direction: column
+    #footerTop
+        @include sections()
+        display: flex
+        justify-content: space-between
+        background-color: $noir
+        #footerLeft
+            width: 30%
+            > div
+                position: relative
+                padding-bottom: 5px
+                margin-bottom: 20px
+                h2
+                    font-weight: bolder
+                    font-size: 2.8rem
+                h2::after
+                    content: ""
+                    width: 200px
+                    height: 1px
+                    background-color: white
+                    position: absolute
+                    bottom: 0px
+                    left: 0px
+            form
+                display: flex
+                flex-direction: column
+                gap: 30px
+                width: 100%
+                input
+                    background-color: $noir
+                    border: none
+                    border-bottom: 1px solid gray
+                    height: 40px
+                input::placeholder
+                    color: white
+                    font-weight: bolder
+                textarea
+                    height: 40px
+                    background-color: $noir
+                    border: none
+                    border-bottom: 1px solid gray
+                textarea::placeholder
+                    color: white
+                    font-weight: bolder
+                button
+                    width: 170px
+    #footerBot
+        @include centerAll()
+        width: 80%
+        background-color: $noir
+        height: 60px
+        border-top: 1px solid gray
+        p
+            margin: 0
 
 
 .navActive
@@ -227,6 +286,9 @@ header
     cursor: pointer
     border-radius: 5px
     padding: 10px 25px
+    @include transitionClassique()
+.btnClassique:hover
+    background-color: rgb(233, 110, 161)
 .titreSection
     h2
         font-size: 2.8rem
@@ -241,3 +303,8 @@ header
         position: absolute
         margin-top: 40px
         margin-left: 40px
+.btnForm
+    background-color: $accent
+    color: white
+    border: none
+    padding: 10px 25px

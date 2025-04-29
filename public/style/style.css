@@ -10725,20 +10725,18 @@ header section div img {
   justify-content: center !important;
   align-items: center !important;
   width: 80%;
-  height: 300px;
+  height: 280px;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 #testimonial #carouselExample .carousel-inner {
   text-align: center;
   margin-right: 20px;
   margin-left: 20px;
-  overflow: visible;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
 }
 #testimonial #carouselExample .carousel-inner .carousel-item {
-  margin-top: 50px;
+  margin-top: 150px;
   position: relative;
-  overflow: visible;
-  height: 250px;
+  height: 350px;
 }
 #testimonial #carouselExample .carousel-inner .carousel-item h5 {
   font-weight: bolder;
@@ -10762,6 +10760,93 @@ header section div img {
 #testimonial .ctrl:hover {
   background-color: black;
 }
+#testimonial .carousel-control-prev {
+  left: -25px;
+}
+#testimonial .carousel-control-next {
+  right: -25px;
+}
+
+footer {
+  width: 100%;
+  color: white;
+  background-color: rgb(33, 33, 33);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+footer #footerTop {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  width: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: rgb(33, 33, 33);
+}
+footer #footerTop #footerLeft {
+  width: 30%;
+}
+footer #footerTop #footerLeft > div {
+  position: relative;
+  padding-bottom: 5px;
+  margin-bottom: 20px;
+}
+footer #footerTop #footerLeft > div h2 {
+  font-weight: bolder;
+  font-size: 2.8rem;
+}
+footer #footerTop #footerLeft > div h2::after {
+  content: "";
+  width: 200px;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+}
+footer #footerTop #footerLeft form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+footer #footerTop #footerLeft form input {
+  background-color: rgb(33, 33, 33);
+  border: none;
+  border-bottom: 1px solid gray;
+  height: 40px;
+}
+footer #footerTop #footerLeft form input::placeholder {
+  color: white;
+  font-weight: bolder;
+}
+footer #footerTop #footerLeft form textarea {
+  height: 40px;
+  background-color: rgb(33, 33, 33);
+  border: none;
+  border-bottom: 1px solid gray;
+}
+footer #footerTop #footerLeft form textarea::placeholder {
+  color: white;
+  font-weight: bolder;
+}
+footer #footerTop #footerLeft form button {
+  width: 170px;
+}
+footer #footerBot {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+  background-color: rgb(33, 33, 33);
+  height: 60px;
+  border-top: 1px solid gray;
+}
+footer #footerBot p {
+  margin: 0;
+}
 
 .navActive {
   color: rgb(251, 138, 186);
@@ -10774,6 +10859,11 @@ header section div img {
   cursor: pointer;
   border-radius: 5px;
   padding: 10px 25px;
+  transition: 0.3s ease;
+}
+
+.btnClassique:hover {
+  background-color: rgb(233, 110, 161);
 }
 
 .titreSection h2 {
@@ -10790,6 +10880,13 @@ header section div img {
   position: absolute;
   margin-top: 40px;
   margin-left: 40px;
+}
+
+.btnForm {
+  background-color: rgb(251, 138, 186);
+  color: white;
+  border: none;
+  padding: 10px 25px;
 }
 
 /*!
