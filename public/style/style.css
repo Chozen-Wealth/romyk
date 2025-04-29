@@ -10903,6 +10903,11 @@ footer #footerTop #footerRight > div:last-of-type > div i {
   align-items: center;
   color: rgb(33, 33, 33);
   background-color: white;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+footer #footerTop #footerRight > div:last-of-type > div i:hover {
+  background-color: rgb(251, 138, 186);
 }
 footer #footerBot {
   display: flex;
