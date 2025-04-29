@@ -286,10 +286,15 @@ header
             text-align: center
             margin-right: 20px
             margin-left: 20px
+            display: flex
+            overflow: hidden
+            @include transitionClassique()
             .carousel-item
+                display: none
                 margin-top: 150px
                 position: relative
                 height: 350px
+                @include transitionClassique()
                 h5
                     font-weight: bolder
                 img
@@ -298,7 +303,9 @@ header
                     width: 200px
                     margin-top: 20px
                     left: calc( 50% - 100px )
-                    
+            .carousel-item.active
+                display: block
+     
     .ctrl
         background-color: $accent
         height: 50px

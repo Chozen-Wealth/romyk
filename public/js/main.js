@@ -109,3 +109,43 @@ loginBox.addEventListener("click", (e) => {
 
 
 // Tentative de carousel ici
+let carousel = document.querySelector("#carouselExample")
+let items = carousel.querySelectorAll(".carousel-item")
+let btnNext = carousel.querySelector(".carousel-control-next")
+let btnPrev = carousel.querySelector(".carousel-control-prev")
+let track = carousel.querySelector(".carousel-inner")
+
+let indexActuel = 0
+let itemsTotal = items.length
+
+function showSlide(index) {
+    items.forEach((item, i) =>{
+        item.classList.remove("active")
+        if (i === index) {
+            item.classList.add("active")
+        }
+    })
+}
+
+btnNext.addEventListener("click", ()=>{
+    showSlide(indexActuel)
+
+    indexActuel++;
+  
+    if (indexActuel >= items.length) {
+      indexActuel = 0; // ou stop ici si tu veux bloquer à la fin
+    }
+  
+    const amountToMove = -indexActuel * 100; // pour 100% de largeur
+    items[indexActuel].style.transform = `translateX(${amountToMove}%)`;
+})
+
+btnPrev.addEventListener("click", ()=>{
+    indexActuel = (indexActuel - 1) % itemsTotal
+    showSlide(indexActuel)
+})
+
+setInterval(()=>{
+    indexActuel = (indexActuel + 1) % itemsTotal
+    showSlide(indexActuel)
+}, 5000)

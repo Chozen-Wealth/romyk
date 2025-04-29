@@ -10862,11 +10862,16 @@ header section div img {
   text-align: center;
   margin-right: 20px;
   margin-left: 20px;
+  display: flex;
+  overflow: hidden;
+  transition: 0.3s ease;
 }
 #testimonial #carouselExample .carousel-inner .carousel-item {
+  display: none;
   margin-top: 150px;
   position: relative;
   height: 350px;
+  transition: 0.3s ease;
 }
 #testimonial #carouselExample .carousel-inner .carousel-item h5 {
   font-weight: bolder;
@@ -10877,6 +10882,9 @@ header section div img {
   width: 200px;
   margin-top: 20px;
   left: calc(50% - 100px);
+}
+#testimonial #carouselExample .carousel-inner .carousel-item.active {
+  display: block;
 }
 #testimonial .ctrl {
   background-color: rgb(251, 138, 186);
