@@ -11,6 +11,12 @@ body
     flex-direction: column
     align-items: center
 
+main
+    width: 100%
+    display: flex
+    flex-direction: column
+    align-items: center
+
 nav
     background-color: white
     border-bottom: 1px solid $accent
@@ -21,6 +27,7 @@ nav
     width: 98%
     position: sticky
     top: 0px
+    z-index: 10
     img
         height: 20px
     ul
@@ -64,9 +71,11 @@ nav
                 color: black
 
 header
+    width: 100%
+    @include centerAll()
+    
     section
         @include sections()
-        
         @include centerAll()
         div
             width: 50%
@@ -75,9 +84,96 @@ header
             img
                 width: 100%
 
+#about
+    @include sections()
+    @include centerAll()
+    img
+        width: 100%
+    div
+        width: 50%
+        p
+            text-wrap: nowrap
+
+#features
+    @include sections()
+    #featuresCartes
+        width: 100%
+        display: flex
+        flex-direction: column
+        gap: 25px
+        margin-top: 25px
+        margin-bottom: 50px
+        #featuresCartesTop
+            width: 100%
+            @include centerAll()
+            justify-content: space-between
+        #featuresCartesBot
+            width: 100%
+            @include centerAll()
+            justify-content: space-between
+    > div:last-of-type
+        display: flex
+        justify-content: center
+        align-items: center
+.carte
+    height: 450px
+    width: 30%
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
+    div:first-of-type
+        @include centerAll()
+        height: 65%
+        background-color: rgb(212, 212, 212)
+        @include transitionClassique()
+    div:last-of-type
+        @include centerAll()
+        flex-direction: column
+        position: relative
+        height: 35%
+        span
+            position: absolute
+            font-size: 24px
+            background-color: white
+            padding: 10px
+            border-radius: 50%
+            top: -30px
+            font-weight: bold
+        .btnCarte
+            color: $accent
+            border: 1px solid $accent
+            background-color: transparent
+            border-radius: 25px
+            padding: 10px 25px
+            @include transitionClassique()
+        .btnCarte:hover
+            background-color: $accent
+            color: white
+.carte:hover
+    div:first-of-type
+        background-color: rgb(248, 236, 191)
+    
+
+#services
+    @include sections()
+    #servicesCartes
+        width: 100%
+        display: flex
+        justify-content: space-between
+        padding-top: 25px
+        padding-bottom: 50px
+        .servicesCarte
+            border: 1px solid $accent
+            padding: 10px 20px
+            padding-top: 15px
+    > div:last-of-type
+        @include centerAll()
+        
+#testimonial
+    @include sections()
+    	
 
 
-.active
+
+.navActive
     color: $accent
 .btnClassique
     color: white
@@ -86,3 +182,16 @@ header
     cursor: pointer
     border-radius: 5px
     padding: 10px 25px
+.titreSection
+    h2
+        font-size: 2.8rem
+        text-wrap: nowrap
+    h2::after
+        content: ""
+        width: 80px
+        background-color: $accent
+        height: 7px
+        border-radius: 5px
+        position: absolute
+        margin-top: 40px
+        margin-left: 40px

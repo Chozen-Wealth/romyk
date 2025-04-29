@@ -36,7 +36,7 @@
     <nav>
         <img src="./public/assets/images/logo.png" alt="">
         <ul>
-            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#" class="navActive">Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Icecream</a></li>
             <li><a href="#">Services</a></li>
@@ -66,15 +66,19 @@
 
     <main>
         <section id="about">
-            <img src="./public/assets/images/about-img.png" alt="">
             <div>
-                <h2>About Icecream</h2>
-                <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-                <br>dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                <br>ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-                <br>dolor in reprehenderit in vduptate velit esse cillum dolore euconsectetur
-                <br>adipiscing esequat. Duis aute irure dolor in reprehenderit in voluptate velit
-                <br>esse cillum dolore eu</p>
+                <img src="./public/assets/images/about-img.png" alt="">
+            </div>
+            <div>
+                <div class="titreSection">
+                    <h2>About Icecream</h2>
+                    <p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    <br>dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    <br>ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
+                    <br>dolor in reprehenderit in vduptate velit esse cillum dolore euconsectetur
+                    <br>adipiscing esequat. Duis aute irure dolor in reprehenderit in voluptate velit
+                    <br>esse cillum dolore eu</p>
+                </div>
                 <button class="btnClassique">Read More</button>
             </div>
         </section>
@@ -84,9 +88,9 @@
                 <h2>Our Featured Ice Cream</h2>
                 <p>tempor incididunt ut labore et dolore magna aliqua</p>
             </div>
-            <div class="featuresCartes">
-                <div class="featuresCartesTop">
-                    <div class="featuresCarte">
+            <div id="featuresCartes">
+                <div id="featuresCartesTop">
+                    <div class="carte">
                         <div>
                             <img src="./public/assets/images/img-1.png" alt="">
                         </div>
@@ -117,7 +121,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="featuresCartesBot">
+                <div id="featuresCartesBot">
                     <div class="carte">
                         <div>
                             <img src="./public/assets/images/img-3.png" alt="">
@@ -150,7 +154,9 @@
                     </div>
                 </div>
             </div>
-            <button class="btnClassique">See More</button>
+            <div>
+                <button class="btnClassique">See More</button>
+            </div>
         </section>
 
         <section id="services">
@@ -158,7 +164,7 @@
                 <h2>Our Ice Cream Services</h2>
                 <p>tempor incididunt ut labore et dolore magna aliqua</p>
             </div>
-            <div class="servicesCartes">
+            <div id="servicesCartes">
                 <div class="servicesCarte">
                     <h5><img src="./public/assets/images/icon-1.png" alt=""> Cookies Ice Cream</h5>
                     <p>commodo consequat. Duis aute irure
@@ -178,7 +184,9 @@
                     <br>esse cillum dolore eu fat</p>
                 </div>
             </div>
-            <button class="btnClassique">Read More</button>
+            <div>
+                <button class="btnClassique">Read More</button>
+            </div>
         </section>
         <section id="testimonial">
             <h2>Testimonial</h2>
