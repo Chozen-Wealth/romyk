@@ -10466,6 +10466,11 @@ readers do not read off random characters that represent icons */
   --fa: "\f3f6";
 }
 
+.darkmode {
+  background-color: rgb(33, 33, 33) !important;
+  color: white !important;
+}
+
 #backgroundPopUp {
   width: 100vw;
   height: 100vh;
@@ -10522,7 +10527,7 @@ readers do not read off random characters that represent icons */
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 20px;
+  font-size: 26px;
 }
 #loginBox #register {
   display: none;
@@ -10640,6 +10645,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: white;
 }
 header section {
   padding-top: 100px;
@@ -10659,8 +10665,20 @@ header section div h1 {
 }
 header section div img {
   width: 100%;
+  animation: levitation 3s ease-in-out forwards infinite;
 }
 
+@keyframes levitation {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
 #about {
   padding-top: 100px;
   padding-bottom: 100px;
@@ -10685,6 +10703,10 @@ header section div img {
   padding-bottom: 100px;
   width: 80%;
   background-color: white;
+  position: relative;
+  padding-right: 10%;
+  padding-left: 10%;
+  width: 100%;
 }
 #features #featuresCartes {
   width: 100%;
@@ -10700,6 +10722,18 @@ header section div img {
   justify-content: center;
   align-items: center;
   justify-content: space-between;
+}
+#features #featuresCartes #featuresCartesTop > img:first-of-type {
+  position: absolute;
+  right: 0px;
+  width: 100px;
+  top: 200px;
+}
+#features #featuresCartes #featuresCartesTop > img:last-of-type {
+  position: absolute;
+  left: calc(10% - 100px);
+  width: 100px;
+  bottom: 200px;
 }
 #features #featuresCartes #featuresCartesBot {
   width: 100%;
@@ -10756,6 +10790,14 @@ header section div img {
   background-color: rgb(251, 138, 186);
   color: white;
 }
+.carte .basCarte.sombre {
+  color: black !important;
+  background-color: white !important;
+}
+
+.carte.glow {
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+}
 
 .carte:hover div:first-of-type {
   background-color: rgb(248, 236, 191);
@@ -10794,10 +10836,15 @@ header section div img {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding-bottom: 150px;
 }
 #testimonial h2 {
   font-weight: bolder;
   font-size: 3rem;
+}
+#testimonial #carouselExample.sombre {
+  color: black;
+  box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
 }
 #testimonial #carouselExample {
   margin-top: 50px;
@@ -10806,6 +10853,7 @@ header section div img {
   align-items: center;
   justify-content: center !important;
   align-items: center !important;
+  background-color: white;
   width: 80%;
   height: 280px;
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
@@ -10857,6 +10905,7 @@ footer {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  border-top: 1px solid gray;
 }
 footer #footerTop {
   padding-top: 100px;

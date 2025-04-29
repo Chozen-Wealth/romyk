@@ -11,6 +11,50 @@ let register = document.getElementById("register")
 let connexion = document.getElementById("connexion")
 let inscription = document.getElementById("inscription")
 
+let sections = document.querySelectorAll("section")
+let btnDark = document.getElementById("darkMode")
+let btnLight = document.getElementById("lightMode")
+let main = document.getElementsByTagName("main")[0]
+let header = document.getElementsByTagName("header")[0]
+
+let basCarte = document.getElementsByClassName("basCarte")
+let carte = document.getElementsByClassName("carte")
+let carouselExample = document.getElementById("carouselExample")
+
+btnDark.addEventListener("click", ()=>{
+    sections.forEach(element => {
+        element.classList.add("darkmode")
+    })
+    main.classList.add("darkmode")
+    header.classList.add("darkmode")
+    btnDark.style.display = "none"
+    btnLight.style.display = "inline-block"
+    Array.from(basCarte).forEach(bas => {
+        bas.classList.add("sombre")
+    })
+    Array.from(carte).forEach(glow => {
+        glow.classList.add("glow")
+    })
+    carouselExample.classList.add("sombre")
+})
+btnLight.addEventListener("click", ()=>{
+    sections.forEach(element => {
+        element.classList.remove("darkmode")
+    })
+    main.classList.remove("darkmode")
+    header.classList.remove("darkmode")
+    btnDark.style.display = "inline-block"
+    btnLight.style.display = "none"
+    Array.from(basCarte).forEach(bas => {
+        bas.classList.remove("sombre")
+    })
+    Array.from(carte).forEach(glow => {
+        glow.classList.remove("glow")
+    })
+    carouselExample.classList.remove("sombre")
+})
+
+
 
 navElement.forEach(element => {
     element.addEventListener("click", ()=>{
@@ -62,3 +106,6 @@ backgroundPopUp.addEventListener("click", ()=>{
 loginBox.addEventListener("click", (e) => {
     e.stopPropagation()
 })
+
+
+// Tentative de carousel ici

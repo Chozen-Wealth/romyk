@@ -2,6 +2,9 @@
 @use "./_icons" as *
 @use "./_mixins" as *
 
+.darkmode
+    background-color: $noir !important
+    color: white !important
 
 #backgroundPopUp
     width: 100vw
@@ -47,7 +50,7 @@
         position: absolute
         top: 10px
         right: 10px
-        font-size: 20px
+        font-size: 26px
     #register
         display: none
         flex-direction: column
@@ -79,7 +82,6 @@ main
     display: flex
     flex-direction: column
     align-items: center
-
 nav
     background-color: white
     border-bottom: 1px solid $accent
@@ -138,7 +140,7 @@ nav
 header
     width: 100%
     @include centerAll()
-    
+    background-color: white
     section
         @include sections()
         @include centerAll()
@@ -149,6 +151,14 @@ header
                 font-weight: bolder
             img
                 width: 100%
+                animation: levitation 3s ease-in-out forwards infinite
+@keyframes levitation
+    0%
+        transform: translateY(0)
+    50%
+        transform: translateY(20px)
+    100%
+        transform: translateY(0px)
 
 #about
     @include sections()
@@ -162,6 +172,10 @@ header
 
 #features
     @include sections()
+    position: relative
+    padding-right: 10%
+    padding-left: 10%
+    width: 100%
     #featuresCartes
         width: 100%
         display: flex
@@ -173,6 +187,16 @@ header
             width: 100%
             @include centerAll()
             justify-content: space-between
+            > img:first-of-type
+                position: absolute
+                right: 0px
+                width: 100px
+                top: 200px
+            > img:last-of-type
+                position: absolute
+                left: calc( 10% - 100px )
+                width: 100px
+                bottom: 200px
         #featuresCartesBot
             width: 100%
             @include centerAll()
@@ -213,6 +237,11 @@ header
         .btnCarte:hover
             background-color: $accent
             color: white
+    .basCarte.sombre
+        color: black !important
+        background-color: white !important
+.carte.glow
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5)
 .carte:hover
     div:first-of-type
         background-color: rgb(248, 236, 191)
@@ -237,15 +266,19 @@ header
     @include sections()
     @include centerAll()
     flex-direction: column
+    padding-bottom: 150px
     h2
         font-weight: bolder
         font-size: 3rem
+    #carouselExample.sombre
+        color: black
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5)
     #carouselExample
         margin-top: 50px
         @include centerAll()
         justify-content: center !important
         align-items: center !important
-        // background-color: red
+        background-color: white
         width: 80%
         height: 280px
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
@@ -287,6 +320,7 @@ footer
     background-color: $noir
     @include centerAll()
     flex-direction: column
+    border-top: 1px solid gray
     #footerTop
         @include sections()
         display: flex
