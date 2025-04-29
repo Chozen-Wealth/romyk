@@ -102,17 +102,26 @@ loginBox.addEventListener("click", (e) => {
 })
 
 
-// Tentative de carousel ici
+
+
+
+
+
+// Carousel
 let carousel = document.querySelector("#carouselExample")
+let inner = carousel.querySelector(".carousel-inner")
 let items = carousel.querySelectorAll(".carousel-item")
+
+// Carousel bouttons
 let btnNext = carousel.querySelector(".carousel-control-next")
 let btnPrev = carousel.querySelector(".carousel-control-prev")
-let track = carousel.querySelector(".carousel-inner")
 
+// Index de l'element
 let indexActuel = 0
 let itemsTotal = items.length
 
-function showSlide(index) {
+// Active l'un et désactive les autres selon l'index actuel qu'on lui donnera quand on va l'appeler.
+function active(index) {
     items.forEach((item, i) =>{
         item.classList.remove("active")
         if (i === index) {
@@ -121,25 +130,25 @@ function showSlide(index) {
     })
 }
 
-btnNext.addEventListener("click", ()=>{
-    showSlide(indexActuel)
 
-    indexActuel++;
-  
+btnNext.addEventListener("click", ()=>{
+    // On appelle l'index ici + on incrémente de 1 à chaque clique
+    active(indexActuel)
+    // Si l'index passe à + que le nombre d'éléments dans le carousel, on revient à 0
     if (indexActuel >= items.length) {
-      indexActuel = 0; // ou stop ici si tu veux bloquer à la fin
+        indexActuel = 0
     }
-  
-    const amountToMove = -indexActuel * 100; // pour 100% de largeur
-    items[indexActuel].style.transform = `translateX(${amountToMove}%)`;
+    items[indexActuel].style.transform = "translateX(-100%)";
+    // items[indexActuel].style.transform = "translateX(100%)";
+    indexActuel++
 })
 
 btnPrev.addEventListener("click", ()=>{
     indexActuel = (indexActuel - 1) % itemsTotal
-    showSlide(indexActuel)
+    active(indexActuel)
 })
 
 setInterval(()=>{
     indexActuel = (indexActuel + 1) % itemsTotal
-    showSlide(indexActuel)
+    active(indexActuel)
 }, 5000)

@@ -290,11 +290,13 @@ header
             overflow: hidden
             @include transitionClassique()
             .carousel-item
-                display: none
+                position: absolute
                 margin-top: 150px
                 position: relative
                 height: 350px
-                @include transitionClassique()
+                transition: 1s ease
+                transform: translateX(100%)
+                opacity: 0
                 h5
                     font-weight: bolder
                 img
@@ -304,7 +306,9 @@ header
                     margin-top: 20px
                     left: calc( 50% - 100px )
             .carousel-item.active
-                display: block
+                opacity: 1
+                transform: translateX(0)
+                z-index: 1
      
     .ctrl
         background-color: $accent
