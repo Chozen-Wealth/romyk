@@ -10563,6 +10563,7 @@ header section {
   padding-top: 100px;
   padding-bottom: 100px;
   width: 80%;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10572,6 +10573,7 @@ header section div {
 }
 header section div h1 {
   font-size: 4.5rem;
+  font-weight: bolder;
 }
 header section div img {
   width: 100%;
@@ -10581,6 +10583,7 @@ header section div img {
   padding-top: 100px;
   padding-bottom: 100px;
   width: 80%;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -10599,6 +10602,7 @@ header section div img {
   padding-top: 100px;
   padding-bottom: 100px;
   width: 80%;
+  background-color: white;
 }
 #features #featuresCartes {
   width: 100%;
@@ -10679,6 +10683,7 @@ header section div img {
   padding-top: 100px;
   padding-bottom: 100px;
   width: 80%;
+  background-color: white;
 }
 #services #servicesCartes {
   width: 100%;
@@ -10702,6 +10707,60 @@ header section div img {
   padding-top: 100px;
   padding-bottom: 100px;
   width: 80%;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#testimonial h2 {
+  font-weight: bolder;
+  font-size: 3rem;
+}
+#testimonial #carouselExample {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: center !important;
+  align-items: center !important;
+  width: 80%;
+  height: 300px;
+}
+#testimonial #carouselExample .carousel-inner {
+  text-align: center;
+  margin-right: 20px;
+  margin-left: 20px;
+  overflow: visible;
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2);
+}
+#testimonial #carouselExample .carousel-inner .carousel-item {
+  margin-top: 50px;
+  position: relative;
+  overflow: visible;
+  height: 250px;
+}
+#testimonial #carouselExample .carousel-inner .carousel-item h5 {
+  font-weight: bolder;
+}
+#testimonial #carouselExample .carousel-inner .carousel-item img {
+  position: absolute;
+  z-index: 5;
+  width: 200px;
+  margin-top: 20px;
+  left: calc(50% - 100px);
+}
+#testimonial .ctrl {
+  background-color: rgb(251, 138, 186);
+  height: 50px;
+  width: 50px;
+  padding: 10px;
+  opacity: 1;
+  transition: 0.3s ease;
+  top: calc(50% - 25px);
+}
+#testimonial .ctrl:hover {
+  background-color: black;
 }
 
 .navActive {
@@ -10720,6 +10779,7 @@ header section div img {
 .titreSection h2 {
   font-size: 2.8rem;
   text-wrap: nowrap;
+  font-weight: bolder;
 }
 .titreSection h2::after {
   content: "";

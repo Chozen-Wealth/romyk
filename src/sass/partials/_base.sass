@@ -81,6 +81,7 @@ header
             width: 50%
             h1
                 font-size: 4.5rem
+                font-weight: bolder
             img
                 width: 100%
 
@@ -169,7 +170,51 @@ header
         
 #testimonial
     @include sections()
-    	
+    @include centerAll()
+    flex-direction: column
+    h2
+        font-weight: bolder
+        font-size: 3rem
+    #carouselExample
+        margin-top: 50px
+        @include centerAll()
+        justify-content: center !important
+        align-items: center !important
+        // background-color: red
+        width: 80%
+        height: 300px
+        .carousel-inner
+            text-align: center
+            margin-right: 20px
+            margin-left: 20px
+            overflow: visible
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
+            .carousel-item
+                margin-top: 50px
+                position: relative
+                overflow: visible
+                height: 250px
+                h5
+                    font-weight: bolder
+                img
+                    position: absolute
+                    z-index: 5
+                    width: 200px
+                    margin-top: 20px
+                    left: calc( 50% - 100px )
+                // box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
+        
+    .ctrl
+        background-color: $accent
+        height: 50px
+        width: 50px
+        padding: 10px
+        opacity: 1
+        @include transitionClassique()
+        top: calc( 50% - 25px )
+    .ctrl:hover
+        background-color: black
+    
 
 
 
@@ -186,6 +231,7 @@ header
     h2
         font-size: 2.8rem
         text-wrap: nowrap
+        font-weight: bolder
     h2::after
         content: ""
         width: 80px
