@@ -1,3 +1,88 @@
 @use "./_variables" as *
 @use "./_icons" as *
 @use "./_mixins" as *
+
+
+#loginBox
+    display: none
+
+body
+    display: flex
+    flex-direction: column
+    align-items: center
+
+nav
+    background-color: white
+    border-bottom: 1px solid $accent
+    height: 80px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    width: 98%
+    position: sticky
+    top: 0px
+    img
+        height: 20px
+    ul
+        display: flex
+        list-style: none
+        gap: 50px
+        align-items: center
+        margin: 0
+        a
+            text-decoration: none
+            color: black
+            @include transitionClassique()
+        li:hover
+            a
+                color: $accent
+    div
+        @include centerAll()
+        gap: 25px
+        #darkMode
+            font-size: 20px
+            cursor: pointer
+        #darkMode:hover
+            color: $accent
+        #lightMode
+            display: none
+            font-size: 20px
+            cursor: pointer
+        #lightMode:hover
+            color: $accent
+        button
+            background-color: transparent
+            border: none
+            @include centerAll()
+            gap: 5px
+            @include transitionClassique()
+            i
+                color: black
+        button:hover
+            color: $accent
+            i
+                color: black
+
+header
+    section
+        @include sections()
+        
+        @include centerAll()
+        div
+            width: 50%
+            h1
+                font-size: 4.5rem
+            img
+                width: 100%
+
+
+
+.active
+    color: $accent
+.btnClassique
+    color: white
+    background-color: $accent
+    border: none
+    cursor: pointer
+    border-radius: 5px
+    padding: 10px 25px
