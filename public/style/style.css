@@ -10490,7 +10490,9 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 98%;
+  width: 100%;
+  padding-left: 1%;
+  padding-right: 1%;
   position: sticky;
   top: 0px;
   z-index: 10;
@@ -10799,7 +10801,7 @@ footer #footerTop #footerLeft > div h2 {
 }
 footer #footerTop #footerLeft > div h2::after {
   content: "";
-  width: 200px;
+  width: 250px;
   height: 1px;
   background-color: white;
   position: absolute;
@@ -10834,6 +10836,63 @@ footer #footerTop #footerLeft form textarea::placeholder {
 }
 footer #footerTop #footerLeft form button {
   width: 170px;
+}
+footer #footerTop #footerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer #footerTop #footerRight > div:first-of-type {
+  display: flex;
+  gap: 25px;
+  margin-top: 25px;
+}
+footer #footerTop #footerRight > div:first-of-type p {
+  font-size: 18px;
+}
+footer #footerTop #footerRight > div:first-of-type p i {
+  margin-right: 10px;
+  font-size: 24px;
+}
+footer #footerTop #footerRight > div:first-of-type p:first-of-type i {
+  color: rgb(251, 138, 186);
+}
+footer #footerTop #footerRight > div:last-of-type {
+  display: flex;
+  flex-direction: column;
+}
+footer #footerTop #footerRight > div:last-of-type h2 {
+  position: relative;
+  left: 30%;
+}
+footer #footerTop #footerRight > div:last-of-type form {
+  display: flex;
+  align-items: center;
+  width: 70%;
+  position: relative;
+  left: 30%;
+}
+footer #footerTop #footerRight > div:last-of-type form input {
+  height: 45px;
+  margin-right: -1px;
+  width: 100%;
+}
+footer #footerTop #footerRight > div:last-of-type > div {
+  margin-top: 50px;
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: flex-end;
+}
+footer #footerTop #footerRight > div:last-of-type > div i {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(33, 33, 33);
+  background-color: white;
 }
 footer #footerBot {
   display: flex;

@@ -24,7 +24,9 @@ nav
     display: flex
     justify-content: space-between
     align-items: center
-    width: 98%
+    width: 100%
+    padding-left: 1%
+    padding-right: 1%
     position: sticky
     top: 0px
     z-index: 10
@@ -238,7 +240,7 @@ footer
                     font-size: 2.8rem
                 h2::after
                     content: ""
-                    width: 200px
+                    width: 250px
                     height: 1px
                     background-color: white
                     position: absolute
@@ -267,6 +269,51 @@ footer
                     font-weight: bolder
                 button
                     width: 170px
+        #footerRight
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            > div:first-of-type
+                display: flex
+                gap: 25px
+                margin-top: 25px
+                p
+                    font-size: 18px
+                    i
+                        margin-right: 10px
+                        font-size: 24px
+                p:first-of-type
+                    i
+                        color: $accent
+            > div:last-of-type
+                display: flex
+                flex-direction: column
+                h2
+                    position: relative
+                    left: 30%
+                form
+                    display: flex
+                    align-items: center
+                    width: 70%
+                    position: relative
+                    left: 30%
+                    input
+                        height: 45px
+                        margin-right: -1px
+                        width: 100%
+                > div
+                    margin-top: 50px
+                    display: flex
+                    gap: 20px
+                    width: 100%
+                    justify-content: flex-end
+                    i
+                        height: 40px
+                        width: 40px
+                        border-radius: 50%
+                        @include centerAll()
+                        color: $noir
+                        background-color: white
     #footerBot
         @include centerAll()
         width: 80%
