@@ -10864,6 +10864,7 @@ footer #footerTop #footerRight > div:last-of-type {
 footer #footerTop #footerRight > div:last-of-type h2 {
   position: relative;
   left: 30%;
+  width: 200px;
 }
 footer #footerTop #footerRight > div:last-of-type form {
   display: flex;
@@ -10873,9 +10874,18 @@ footer #footerTop #footerRight > div:last-of-type form {
   left: 30%;
 }
 footer #footerTop #footerRight > div:last-of-type form input {
-  height: 45px;
+  height: 46px;
   margin-right: -1px;
   width: 100%;
+  outline: none;
+  border: none;
+}
+footer #footerTop #footerRight > div:last-of-type form button {
+  height: 46px;
+  border-left: 1px solid white;
+}
+footer #footerTop #footerRight > div:last-of-type form button:hover {
+  border-left: 1px solid rgb(33, 33, 33);
 }
 footer #footerTop #footerRight > div:last-of-type > div {
   margin-top: 50px;
@@ -10946,6 +10956,12 @@ footer #footerBot p {
   color: white;
   border: none;
   padding: 10px 25px;
+  transition: 0.3s ease;
+}
+
+.btnForm:hover {
+  background-color: white;
+  color: black;
 }
 
 /*!

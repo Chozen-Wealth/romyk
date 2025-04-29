@@ -291,6 +291,7 @@ footer
                 h2
                     position: relative
                     left: 30%
+                    width: 200px
                 form
                     display: flex
                     align-items: center
@@ -298,9 +299,16 @@ footer
                     position: relative
                     left: 30%
                     input
-                        height: 45px
+                        height: 46px
                         margin-right: -1px
                         width: 100%
+                        outline: none
+                        border: none
+                    button
+                        height: 46px
+                        border-left: 1px solid white
+                    button:hover
+                        border-left: 1px solid $noir
                 > div
                     margin-top: 50px
                     display: flex
@@ -355,3 +363,8 @@ footer
     color: white
     border: none
     padding: 10px 25px
+    @include transitionClassique()
+    
+.btnForm:hover
+    background-color: white
+    color: black
