@@ -9,6 +9,30 @@
 </head>
 <body>
 
+    <div id="loginBox">
+        <i class="fa-solid fa-circle-xmark"></i>
+        <div id="login">
+            <h2 class="titreLogin">Login</h2>
+            <form action="">
+                <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
+                <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
+                <button type="submit" class="btnForm">SEND</button>
+            </form>
+            <p>No accout yet ? <span id="registerBtn">Register</span></p>
+        </div>
+        <div id="register">
+            <h2 class="titreLogin">Register</h2>
+            <form action="">
+                <input type="text" class="inputForm" placeholder="NAME">
+                <input type="email" name="" id="" class="inputForm" placeholder="EMAIL">
+                <input type="tel" name="" id="" class="inputForm" placeholder="PHONE NUMBER">
+                <input type="password" name="" id="" class="inputForm" placeholder="PASSWORD">
+                <button type="submit" class="btnForm">SEND</button>
+            </form>
+            <p>You already have an account ? <span id="LoginBtn">Login</span></p>
+        </div>
+    </div>
+
     <nav>
         <img src="./public/assets/images/logo.png" alt="">
         <ul>
@@ -195,17 +219,41 @@
     </main>
 
     <footer>
-        <div>
-            <h2>Contact Us</h2>
-            <form action="">
-                <input type="text">
-                <input type="email">
-                <input type="tel">
-                <textarea name="" id=""></textarea>
-                <button type="submit">SEND</button>
-            </form>
+        <div class="footerTop">
+            <div class="footerLeft">
+                <h2>Contact Us</h2>
+                <form action="">
+                    <input type="text" class="inputForm" placeholder="NAME">
+                    <input type="email" class="inputForm" placeholder="EMAIL">
+                    <input type="tel" class="inputForm" placeholder="PHONE NUMBER">
+                    <textarea name="" id="" class="inputForm" placeholder="MESSAGE"></textarea>
+                    <button type="submit" class="btnForm">SEND</button>
+                </form>
+            </div>
+            <div class="footerRight">
+                <div>
+                    <p><i class="fa-solid fa-location-dot"></i> Making this the first true</p>
+                    <p><i class="fa-solid fa-phone"></i> Call : +01 123456789</p>
+                    <p><i class="fa-solid fa-envelope"></i> Email : demo@gmail.com</p>
+                </div>
+                <div>
+                    <form action="">
+                        <label for="">Newsletter</label>
+                        <input type="email" name="" id="" placeholder="ENTER YOUR EMAIL">
+                        <button type="submit" class="btnForm">SUBSCRIBE</button>
+                    </form>
+                    <div>
+                        <i class="fa-brands fa-facebook-f"></i>
+                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-linkedin-in"></i>
+                        <i class="fa-brands fa-instagram"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div></div>
+        <div class="footerBot">
+            <p>2025 - Projet IceCream</p>
+        </div>
     </footer>
 
     <script src="./public/js/main.js"></script>
