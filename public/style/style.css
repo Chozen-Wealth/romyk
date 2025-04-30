@@ -11234,6 +11234,10 @@ footer #footerBot p {
   }
 }
 @media (min-width: 425px) and (max-width: 768px) {
+  #loginBox {
+    height: 90vh;
+    width: 90%;
+  }
   nav > ul {
     display: none;
   }
@@ -11252,9 +11256,6 @@ footer #footerBot p {
     background-color: rgba(255, 129, 215, 0.5);
     border-radius: 0px 0px 0px 15px;
     align-items: flex-end;
-  }
-  nav > div button {
-    display: none;
   }
   nav > div #btnMenu {
     display: block;
@@ -11443,6 +11444,10 @@ footer #footerBot p {
   }
 }
 @media (max-width: 425px) {
+  #loginBox {
+    height: 90vh;
+    width: 90%;
+  }
   nav > ul {
     display: none;
   }
@@ -11461,9 +11466,6 @@ footer #footerBot p {
     background-color: rgba(255, 129, 215, 0.5);
     border-radius: 0px 0px 0px 15px;
     align-items: flex-end;
-  }
-  nav > div button {
-    display: none;
   }
   nav > div #btnMenu {
     display: block;
