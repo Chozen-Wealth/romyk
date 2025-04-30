@@ -10607,19 +10607,19 @@ nav {
 nav img {
   height: 20px;
 }
-nav ul {
+nav > ul {
   display: flex;
   list-style: none;
   gap: 50px;
   align-items: center;
   margin: 0;
 }
-nav ul a {
+nav > ul a {
   text-decoration: none;
   color: black;
   transition: 0.3s ease;
 }
-nav ul li:hover a {
+nav > ul li:hover a {
   color: rgb(251, 138, 186);
 }
 nav div {
@@ -10660,6 +10660,20 @@ nav div button:hover {
 }
 nav div button:hover i {
   color: black;
+}
+nav div #btnMenu {
+  font-size: 26px;
+  cursor: pointer;
+  display: none;
+}
+nav div #btnMenu:hover {
+  color: rgb(251, 138, 186);
+}
+nav div #btnMenu.sombre {
+  color: white;
+}
+nav div #btnMenu.sombre:hover {
+  color: rgb(251, 138, 186);
 }
 
 header {
@@ -10713,11 +10727,11 @@ header section div img {
 #about img {
   width: 100%;
 }
-#about div {
-  width: 50%;
+#about div:nth-of-type(2) {
+  width: 60%;
 }
-#about div p {
-  text-wrap: nowrap;
+#about div:nth-of-type(2) p {
+  text-wrap: wrap;
 }
 
 #features {
@@ -11143,7 +11157,7 @@ footer #footerBot p {
 
 @media (min-width: 768px) and (max-width: 1024px) {
   header p {
-    text-wrap: nowrap;
+    text-wrap: wrap;
   }
   .basCarte h3 {
     font-size: 18px;
@@ -11196,13 +11210,16 @@ footer #footerBot p {
     right: 0px;
     opacity: 0.75;
   }
-  #about div {
+  #about div:nth-of-type(2) {
     width: 100%;
     background-color: rgba(255, 255, 255, 0.5);
     z-index: 1;
   }
-  #about div p {
+  #about div:nth-of-type(2) p {
     text-wrap: nowrap;
+  }
+  #about .aboutText.sombre {
+    background-color: rgba(70, 70, 70, 0.5);
   }
   #carousel {
     width: 100% !important;
@@ -11217,8 +11234,37 @@ footer #footerBot p {
   }
 }
 @media (min-width: 425px) and (max-width: 768px) {
-  nav ul {
+  nav > ul {
     display: none;
+  }
+  nav > ul.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 80px;
+    padding-right: 20px;
+    padding-left: 50px;
+    padding-top: 20px;
+    gap: 15px;
+    text-align: right !important;
+    padding-bottom: 20px;
+    background-color: rgba(255, 129, 215, 0.5);
+    border-radius: 0px 0px 0px 15px;
+    align-items: flex-end;
+  }
+  nav > div button {
+    display: none;
+  }
+  nav > div #btnMenu {
+    display: block;
+    z-index: 12;
+  }
+  nav > div #lightMode {
+    z-index: 12;
+  }
+  nav > div #darkMode {
+    z-index: 12;
   }
   header section {
     flex-direction: column-reverse;
@@ -11238,7 +11284,7 @@ footer #footerBot p {
     display: none;
   }
   header section div h1 {
-    margin-top: 125px;
+    margin-top: 50vh;
     text-align: center;
   }
   header section div p {
@@ -11278,6 +11324,9 @@ footer #footerBot p {
   #about div:nth-of-type(2) p br {
     display: none;
   }
+  #about .aboutText.sombre {
+    background-color: rgba(70, 70, 70, 0.5);
+  }
   .titreSection {
     text-align: center !important;
     position: relative !important;
@@ -11286,11 +11335,43 @@ footer #footerBot p {
   .titreSection h2 {
     position: relative !important;
     text-wrap: wrap;
+    margin-bottom: 20px;
   }
   .titreSection h2::after {
-    left: 50%;
+    left: calc(50% - 125px);
     margin-top: 60px;
-    width: 10px;
+    margin-left: 0px;
+    width: 250px;
+  }
+  #servicesCartes {
+    justify-content: center !important;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  #featuresCartes {
+    flex-direction: column !important;
+  }
+  #featuresCartes #featuresCartesTop {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes #featuresCartesTop > div img {
+    height: 50%;
+  }
+  #featuresCartes #featuresCartesBot {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes .carte {
+    width: 100%;
+  }
+  #featuresCartes .carte > div:first-of-type {
+    position: relative;
+  }
+  #featuresCartes .carte > div:first-of-type img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
   }
   #testimonial {
     width: 100%;
@@ -11310,6 +11391,9 @@ footer #footerBot p {
   }
   #footerTop {
     flex-direction: column;
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
   }
   #footerTop #footerLeft {
     width: 90% !important;
@@ -11317,6 +11401,258 @@ footer #footerBot p {
   }
   #footerTop #footerLeft form {
     align-items: center;
+    width: 100%;
+  }
+  #footerTop #footerLeft form input {
+    width: 100%;
+  }
+  #footerTop #footerLeft form textarea {
+    width: 100%;
+  }
+  #footerTop #footerLeft > div h2::after {
+    width: 250px;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 125px) !important;
+  }
+  #footerTop #footerRight {
+    width: 90% !important;
+    margin-top: 50px;
+  }
+  #footerTop #footerRight > div:first-of-type {
+    margin-bottom: 25px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) {
+    justify-content: center;
+    align-items: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) h2 {
+    left: 0px !important;
+    width: 100% !important;
+    text-align: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) form {
+    left: 0px !important;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) > div {
+    justify-content: center !important;
+  }
+}
+@media (max-width: 425px) {
+  nav > ul {
+    display: none;
+  }
+  nav > ul.open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0px;
+    top: 80px;
+    padding-right: 20px;
+    padding-left: 50px;
+    padding-top: 20px;
+    gap: 15px;
+    text-align: right !important;
+    padding-bottom: 20px;
+    background-color: rgba(255, 129, 215, 0.5);
+    border-radius: 0px 0px 0px 15px;
+    align-items: flex-end;
+  }
+  nav > div button {
+    display: none;
+  }
+  nav > div #btnMenu {
+    display: block;
+    z-index: 12;
+  }
+  nav > div #lightMode {
+    z-index: 12;
+  }
+  nav > div #darkMode {
+    z-index: 12;
+  }
+  header section {
+    flex-direction: column-reverse;
+  }
+  header section img {
+    position: absolute;
+    top: 150px;
+    width: 70% !important;
+  }
+  header section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  header section div br {
+    display: none;
+  }
+  header section div h1 {
+    margin-top: 50vh;
+    text-align: center;
+  }
+  header section div p {
+    text-align: center;
+    display: inline !important;
+    display: none;
+  }
+  #about {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+  #about img {
+    width: 250px;
+    position: absolute;
+    right: 0px;
+    opacity: 0.75;
+  }
+  #about div:nth-of-type(2) {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  #about div:nth-of-type(2) p {
+    text-wrap: wrap;
+    text-align: center;
+    font-size: 16px;
+  }
+  #about div:nth-of-type(2) p br {
+    display: none;
+  }
+  #about .aboutText.sombre {
+    background-color: rgba(70, 70, 70, 0.5);
+  }
+  .titreSection {
+    text-align: center !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+  .titreSection h2 {
+    position: relative !important;
+    text-wrap: wrap;
+    margin-bottom: 20px;
+  }
+  .titreSection h2::after {
+    left: calc(50% - 125px);
+    margin-top: 60px;
+    margin-left: 0px;
+    width: 250px;
+  }
+  #servicesCartes {
+    justify-content: center !important;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+  #featuresCartes {
+    flex-direction: column !important;
+  }
+  #featuresCartes #featuresCartesTop {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes #featuresCartesTop > div img {
+    height: 50%;
+  }
+  #featuresCartes #featuresCartesBot {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes .carte {
+    width: 100%;
+  }
+  #featuresCartes .carte > div:first-of-type {
+    position: relative;
+  }
+  #featuresCartes .carte > div:first-of-type img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+  #testimonial {
+    width: 100%;
+  }
+  #carousel {
+    height: 370px !important;
+    width: 80% !important;
+  }
+  #carouselBox {
+    height: 600px;
+  }
+  .carouselObjet p {
+    text-wrap: wrap !important;
+  }
+  .carouselObjet p br {
+    display: none;
+  }
+  #footerTop {
+    flex-direction: column;
+    width: 100% !important;
+    justify-content: center;
+    align-items: center;
+  }
+  #footerTop #footerLeft {
+    width: 90% !important;
+    text-align: center;
+  }
+  #footerTop #footerLeft form {
+    align-items: center;
+    width: 100%;
+  }
+  #footerTop #footerLeft form input {
+    width: 100%;
+  }
+  #footerTop #footerLeft form textarea {
+    width: 100%;
+  }
+  #footerTop #footerLeft > div h2::after {
+    width: 250px;
+    background-color: white;
+    position: absolute;
+    bottom: 0px;
+    left: calc(50% - 125px) !important;
+  }
+  #footerTop #footerRight {
+    width: 90% !important;
+    margin-top: 50px;
+  }
+  #footerTop #footerRight > div:first-of-type {
+    margin-bottom: 25px;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) {
+    justify-content: center;
+    align-items: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) h2 {
+    left: 0px !important;
+    width: 100% !important;
+    text-align: center;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) form {
+    left: 0px !important;
+    width: 100% !important;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) form input {
+    width: 100%;
+  }
+  #footerTop #footerRight > div:nth-of-type(2) > div {
+    justify-content: center !important;
   }
 }
 /*!

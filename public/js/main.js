@@ -22,6 +22,13 @@ let carte = document.getElementsByClassName("carte")
 let bulle = document.getElementsByClassName("bulle")
 let carouselExample = document.getElementById("carousel")
 let nav = document.getElementsByTagName("nav")[0]
+let aboutText = document.querySelector(".aboutText")
+let btnMenu = document.getElementById("btnMenu")
+let navUl = document.getElementById("navUl")
+
+btnMenu.addEventListener("click", ()=>{
+    navUl.classList.toggle("open")
+})
 
 btnDark.addEventListener("click", ()=>{
     sections.forEach(element => {
@@ -42,6 +49,8 @@ btnDark.addEventListener("click", ()=>{
         element.classList.add("sombre")
     })
     nav.classList.add("sombre")
+    aboutText.classList.add("sombre")
+    btnMenu.classList.add("sombre")
 })
 btnLight.addEventListener("click", ()=>{
     sections.forEach(element => {
@@ -62,6 +71,8 @@ btnLight.addEventListener("click", ()=>{
         element.classList.remove("sombre")
     })
     nav.classList.remove("sombre")
+    aboutText.classList.remove("sombre")
+    btnMenu.classList.remove("sombre")
 })
 
 

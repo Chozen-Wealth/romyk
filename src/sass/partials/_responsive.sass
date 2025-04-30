@@ -7,7 +7,7 @@
 @media (min-width:768px) and (max-width:1024px)
     header
         p
-            text-wrap : nowrap
+            text-wrap : wrap
     .basCarte
         h3
             font-size: 18px
@@ -49,12 +49,15 @@
             position: absolute
             right: 0px
             opacity: 0.75
-        div
+        div:nth-of-type(2)
             width: 100%
             background-color: rgba(255, 255, 255, 0.5)
             z-index: 1
             p
                 text-wrap: nowrap
+        .aboutText.sombre
+            background-color: rgba(70, 70, 70, 0.5)
+
     #carousel
         width: 100% !important
         br
@@ -67,8 +70,33 @@
 // TABLETTE
 @media (min-width:425px) and (max-width:768px)
     nav
-        ul
+        > ul
             display: none
+        > ul.open
+            display: flex
+            flex-direction: column
+            position: absolute
+            right: 0px
+            top: 80px
+            padding-right: 20px
+            padding-left: 50px
+            padding-top: 20px
+            gap: 15px
+            text-align: right !important
+            padding-bottom: 20px
+            background-color: rgba(255, 129, 215, 0.5)
+            border-radius: 0px 0px 0px 15px
+            align-items: flex-end
+        > div
+            button
+                display: none
+            #btnMenu
+                display: block
+                z-index: 12
+            #lightMode
+                z-index: 12
+            #darkMode
+                z-index: 12
     header
         section
             flex-direction: column-reverse
@@ -84,7 +112,7 @@
                 br
                     display: none
                 h1
-                    margin-top: 125px
+                    margin-top: 50vh
                     text-align: center
                 p
                     text-align: center
@@ -116,6 +144,8 @@
                 font-size: 16px
                 br
                     display: none
+        .aboutText.sombre
+            background-color: rgba(70, 70, 70, 0.5)
     .titreSection
         text-align: center !important
         position: relative !important
@@ -123,10 +153,36 @@
         h2
             position: relative !important
             text-wrap: wrap
+            margin-bottom: 20px
         h2::after
-            left: 50%
+            left: calc( 50% - 125px)
             margin-top: 60px
-            width: 10px
+            margin-left: 0px
+            width: 250px
+    #servicesCartes
+        justify-content: center !important
+        flex-wrap: wrap
+        gap: 25px
+    #featuresCartes
+        flex-direction: column !important
+        #featuresCartesTop
+            flex-direction: column
+            gap: 25px
+            .carte:nth-of-type(2)
+            > div
+                img
+                    height: 50%
+        #featuresCartesBot
+            flex-direction: column
+            gap: 25px
+        .carte
+            width: 100%
+            > div:first-of-type
+                position: relative
+                img
+                    width: 80%
+                    height: 80%
+                    object-fit: contain
     #testimonial
         width: 100%
     #carousel
@@ -141,10 +197,215 @@
                 display: none
     #footerTop
         flex-direction: column
+        width: 100% !important
+        justify-content: center
+        align-items: center
         #footerLeft
             width: 90% !important
             text-align: center
             form
                 align-items: center
+                width: 100%
+                input
+                    width: 100%
+                textarea
+                    width: 100%
+            > div
+                h2::after
+                    width: 250px
+                    background-color: white
+                    position: absolute
+                    bottom: 0px
+                    left: calc( 50% - 125px ) !important
+        #footerRight
+            width: 90% !important
+            margin-top: 50px
+            > div:first-of-type
+                margin-bottom: 25px
+                width: 100%
+                flex-direction: column
+                align-items: center
+            > div:nth-of-type(2)
+                justify-content: center
+                align-items: center
+                h2
+                    left: 0px !important
+                    width: 100% !important
+                    text-align: center
+                form
+                    left: 0px !important
+                > div
+                    justify-content: center !important
 
 @media (max-width:425px)
+    nav
+        > ul
+            display: none
+        > ul.open
+            display: flex
+            flex-direction: column
+            position: absolute
+            right: 0px
+            top: 80px
+            padding-right: 20px
+            padding-left: 50px
+            padding-top: 20px
+            gap: 15px
+            text-align: right !important
+            padding-bottom: 20px
+            background-color: rgba(255, 129, 215, 0.5)
+            border-radius: 0px 0px 0px 15px
+            align-items: flex-end
+        > div
+            button
+                display: none
+            #btnMenu
+                display: block
+                z-index: 12
+            #lightMode
+                z-index: 12
+            #darkMode
+                z-index: 12
+    header
+        section
+            flex-direction: column-reverse
+            img
+                position: absolute
+                top: 150px
+                width: 70% !important
+            div
+                display: flex
+                flex-direction: column
+                align-items: center
+                width: 100%
+                br
+                    display: none
+                h1
+                    margin-top: 50vh
+                    text-align: center
+                p
+                    text-align: center
+                    display: inline !important
+                    br
+                    display: none
+    #about
+        flex-direction: column
+        @include centerAll()
+        position: relative
+        width: 100%
+        img
+            width: 250px
+            position: absolute
+            right: 0px
+            opacity: 0.75
+        div:nth-of-type(2)
+            width: 100%
+            background-color: rgba(255, 255, 255, 0.5)
+            z-index: 1
+            display: flex
+            flex-direction: column
+            justify-content: center
+            align-items: center
+            margin-top: 100px
+            p
+                text-wrap: wrap
+                text-align: center
+                font-size: 16px
+                br
+                    display: none
+        .aboutText.sombre
+            background-color: rgba(70, 70, 70, 0.5)
+    .titreSection
+        text-align: center !important
+        position: relative !important
+        width: 100% !important
+        h2
+            position: relative !important
+            text-wrap: wrap
+            margin-bottom: 20px
+        h2::after
+            left: calc( 50% - 125px)
+            margin-top: 60px
+            margin-left: 0px
+            width: 250px
+    #servicesCartes
+        justify-content: center !important
+        flex-wrap: wrap
+        gap: 25px
+    #featuresCartes
+        flex-direction: column !important
+        #featuresCartesTop
+            flex-direction: column
+            gap: 25px
+            .carte:nth-of-type(2)
+            > div
+                img
+                    height: 50%
+        #featuresCartesBot
+            flex-direction: column
+            gap: 25px
+        .carte
+            width: 100%
+            > div:first-of-type
+                position: relative
+                img
+                    width: 80%
+                    height: 80%
+                    object-fit: contain
+    #testimonial
+        width: 100%
+    #carousel
+        height: 370px !important
+        width: 80% !important
+    #carouselBox
+        height: 600px
+    .carouselObjet
+        p
+            text-wrap: wrap !important
+            br
+                display: none
+    #footerTop
+        flex-direction: column
+        width: 100% !important
+        justify-content: center
+        align-items: center
+        #footerLeft
+            width: 90% !important
+            text-align: center
+            form
+                align-items: center
+                width: 100%
+                input
+                    width: 100%
+                textarea
+                    width: 100%
+            > div
+                h2::after
+                    width: 250px
+                    background-color: white
+                    position: absolute
+                    bottom: 0px
+                    left: calc( 50% - 125px ) !important
+        #footerRight
+            width: 90% !important
+            margin-top: 50px
+            > div:first-of-type
+                margin-bottom: 25px
+                width: 100%
+                flex-direction: column
+                align-items: center
+            > div:nth-of-type(2)
+                justify-content: center
+                align-items: center
+                h2
+                    left: 0px !important
+                    width: 100% !important
+                    text-align: center
+                form
+                    left: 0px !important
+                    width: 100% !important
+                    input
+                        width: 100%
+
+                > div
+                    justify-content: center !important
