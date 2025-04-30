@@ -129,26 +129,30 @@ let carouselObjet = document.querySelectorAll(".carouselObjet")
 let indexActuel = 0
 let nombreObjets = carouselObjet.length -1
 console.log(nombreObjets)
+let indexActuelInversed = 2
+
+
 function slideDroite(index) {
+    console.log(indexActuel)
     if (indexActuel >= nombreObjets){
         index = 0
-        
+        carouselObjet[index + 2].style.transition = "1s ease"
+        carouselObjet[index + 2].style.transform = "translateX(-110%)"
         setTimeout(()=>{
+            carouselObjet[index + 2].style.transition = "1s ease"
+            carouselObjet[index + 2].style.transform = "translateX(-110%)"
             carouselObjet[index + 2].style.opacity = "0"
         },500)
-        carouselObjet[index + 2].style.transform = "translateX(-110%)"
+        carouselObjet[index].style.transition = "0s"
+        carouselObjet[index].style.transform = "translateX(110%)"
         carouselObjet[index].style.opacity = "1"
-        carouselObjet[index].style.transform = "translateX(-110%)"
         setTimeout(()=>{
-            carouselObjet[index].style.opacity = "0"
-        },500)
-        carouselObjet[index + 1].style.transition = "0s"
-        carouselObjet[index + 1].style.transform = "translateX(110%)"
-        setTimeout(()=>{
-            carouselObjet[index + 1].style.transition = "1s ease"
-            carouselObjet[index + 1].style.transform = "translateX(0)"
+            carouselObjet[index].style.transition = "1s ease"
+            carouselObjet[index].style.transform = "translateX(0%)"
         },10)
-        carouselObjet[index + 1].style.opacity = "1"
+        setTimeout(()=>{
+            carouselObjet[index].style.opacity = "1"
+        },500)
     }
     else {
         if (carouselObjet[index + 2]) {
@@ -172,9 +176,54 @@ function slideDroite(index) {
     }
     console.log(indexActuel)
     indexActuel++
+}
 
-    
-
+function slideGauche(index) {
+    console.log(indexActuel)
+    if (indexActuel < nombreObjets){
+        index = 2
+        if (carouselObjet[index + 2]) {
+            carouselObjet[index + 2].style.transition = "1s ease"
+            carouselObjet[index + 2].style.transform = "translateX(110%)"
+            setTimeout(()=>{
+                carouselObjet[index + 2].style.transition = "1s ease"
+                carouselObjet[index + 2].style.transform = "translateX(110%)"
+                carouselObjet[index + 2].style.opacity = "0"
+            },500)
+        }
+        carouselObjet[index].style.transition = "0s"
+        carouselObjet[index].style.transform = "translateX(-110%)"
+        carouselObjet[index].style.opacity = "1"
+        setTimeout(()=>{
+            carouselObjet[index].style.transition = "1s ease"
+            carouselObjet[index].style.transform = "translateX(0%)"
+        },10)
+        setTimeout(()=>{
+            carouselObjet[index].style.opacity = "1"
+        },500)
+    }
+    else {
+        if (carouselObjet[index + 2]) {
+            carouselObjet[index + 2].style.transition = "1s ease"
+            setTimeout(()=>{
+                carouselObjet[index + 2].style.opacity = "0"
+            },500)
+            carouselObjet[index + 2].style.transform = "translateX(110%)"
+        }
+        carouselObjet[index].style.transform = "translateX(110%)"
+        setTimeout(()=>{
+        carouselObjet[index].style.opacity = "0"
+        },500)
+        carouselObjet[index + 1].style.transition = "0s"
+        carouselObjet[index + 1].style.transform = "translateX(-110%)"
+        setTimeout(()=>{
+            carouselObjet[index + 1].style.transition = "1s ease"
+            carouselObjet[index + 1].style.transform = "translateX(0)"
+        },10)
+        carouselObjet[index + 1].style.opacity = "1"
+    }
+    console.log(indexActuel)
+    indexActuel -= 1
 }
 
 btnDroite.addEventListener("click",()=>{
@@ -184,6 +233,25 @@ btnDroite.addEventListener("click",()=>{
     }
     else {
         slideDroite(indexActuel)
-    }
-    
+    }  
 })
+
+btnGauche.addEventListener("click", ()=>{
+    if (indexActuel < 0) {
+        indexActuelInversed = 2
+        slideGauche(indexActuelInversed)
+    }
+    else {
+        slideGauche(indexActuelInversed)
+    }  
+})
+
+setInterval(() => {
+    if (indexActuel > nombreObjets) {
+        indexActuel = 0
+        slideDroite(indexActuel)
+    }
+    else {
+        slideDroite(indexActuel)
+    }  
+}, 5000);
