@@ -19,7 +19,9 @@ let header = document.getElementsByTagName("header")[0]
 
 let basCarte = document.getElementsByClassName("basCarte")
 let carte = document.getElementsByClassName("carte")
-let carouselExample = document.getElementById("carouselExample")
+let bulle = document.getElementsByClassName("bulle")
+let carouselExample = document.getElementById("carousel")
+let nav = document.getElementsByTagName("nav")[0]
 
 btnDark.addEventListener("click", ()=>{
     sections.forEach(element => {
@@ -35,7 +37,11 @@ btnDark.addEventListener("click", ()=>{
     Array.from(carte).forEach(glow => {
         glow.classList.add("glow")
     })
-    carouselExample.classList.add("sombre")
+    carousel.classList.add("sombre")
+    Array.from(bulle).forEach(element => {
+        element.classList.add("sombre")
+    })
+    nav.classList.add("sombre")
 })
 btnLight.addEventListener("click", ()=>{
     sections.forEach(element => {
@@ -51,7 +57,11 @@ btnLight.addEventListener("click", ()=>{
     Array.from(carte).forEach(glow => {
         glow.classList.remove("glow")
     })
-    carouselExample.classList.remove("sombre")
+    carousel.classList.remove("sombre")
+    Array.from(bulle).forEach(element => {
+        element.classList.remove("sombre")
+    })
+    nav.classList.remove("sombre")
 })
 
 
@@ -104,51 +114,3 @@ loginBox.addEventListener("click", (e) => {
 
 
 
-
-
-
-// Carousel
-let carousel = document.querySelector("#carouselExample")
-let inner = carousel.querySelector(".carousel-inner")
-let items = carousel.querySelectorAll(".carousel-item")
-
-// Carousel bouttons
-let btnNext = carousel.querySelector(".carousel-control-next")
-let btnPrev = carousel.querySelector(".carousel-control-prev")
-
-// Index de l'element
-let indexActuel = 0
-let itemsTotal = items.length
-
-// Active l'un et désactive les autres selon l'index actuel qu'on lui donnera quand on va l'appeler.
-function active(index) {
-    items.forEach((item, i) =>{
-        item.classList.remove("active")
-        if (i === index) {
-            item.classList.add("active")
-        }
-    })
-}
-
-
-btnNext.addEventListener("click", ()=>{
-    // On appelle l'index ici + on incrémente de 1 à chaque clique
-    active(indexActuel)
-    // Si l'index passe à + que le nombre d'éléments dans le carousel, on revient à 0
-    if (indexActuel >= items.length) {
-        indexActuel = 0
-    }
-    items[indexActuel].style.transform = "translateX(-100%)";
-    // items[indexActuel].style.transform = "translateX(100%)";
-    indexActuel++
-})
-
-btnPrev.addEventListener("click", ()=>{
-    indexActuel = (indexActuel - 1) % itemsTotal
-    active(indexActuel)
-})
-
-setInterval(()=>{
-    indexActuel = (indexActuel + 1) % itemsTotal
-    active(indexActuel)
-}, 5000)

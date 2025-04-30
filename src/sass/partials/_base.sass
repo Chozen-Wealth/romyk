@@ -82,6 +82,22 @@ main
     display: flex
     flex-direction: column
     align-items: center
+nav.sombre
+    background-color: rgb(60, 60, 60)
+    ul
+        a
+            color: white
+    button
+        color: white
+        i
+            color: white
+    button:hover
+        i
+            color: white
+    #darkMode
+        color: white
+    #lightMode
+        color: white
 nav
     background-color: white
     border-bottom: 1px solid $accent
@@ -227,6 +243,8 @@ header
             border-radius: 50%
             top: -30px
             font-weight: bold
+        .bulle.sombre
+            background-color: rgb(70, 70, 70)
         .btnCarte
             color: $accent
             border: 1px solid $accent
@@ -238,10 +256,10 @@ header
             background-color: $accent
             color: white
     .basCarte.sombre
-        color: black !important
-        background-color: white !important
+        color: white !important
+        background-color: rgb(70, 70, 70) !important
 .carte.glow
-    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5)
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 1)
 .carte:hover
     div:first-of-type
         background-color: rgb(248, 236, 191)
@@ -270,60 +288,58 @@ header
     h2
         font-weight: bolder
         font-size: 3rem
-    #carouselExample.sombre
-        color: black
-        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5)
-    #carouselExample
-        margin-top: 50px
-        @include centerAll()
-        justify-content: center !important
-        align-items: center !important
-        background-color: white
-        width: 80%
+    #carousel.sombre
+        background-color: rgb(70, 70, 70)
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.75)
+    #carousel
+        position: relative
         height: 280px
+        width: 75%
         box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.2)
-        .carousel-inner
-            text-align: center
-            margin-right: 20px
-            margin-left: 20px
-            display: flex
-            overflow: hidden
-            @include transitionClassique()
-            .carousel-item
-                position: absolute
-                margin-top: 150px
-                position: relative
-                height: 350px
-                transition: 1s ease
-                transform: translateX(100%)
+        @include centerAll()
+        margin-top: 50px
+        #carouselBox
+            @include centerAll()
+            position: relative
+            width: 100%
+            height: 100%
+            .carouselObjet
                 opacity: 0
-                h5
-                    font-weight: bolder
+                display: flex
+                justify-content: center
+                align-items: center
+                flex-direction: column
+                text-align: center
+                width: fit-content
+                height: fit-content
+                margin-top: 50px
+                position: absolute
+                top: 0
+                p
+                    text-wrap: nowrap
                 img
-                    position: absolute
-                    z-index: 5
-                    width: 200px
-                    margin-top: 20px
-                    left: calc( 50% - 100px )
-            .carousel-item.active
+                    margin-top: 25px
+            .carouselObjet.active
                 opacity: 1
-                transform: translateX(0)
-                z-index: 1
-     
-    .ctrl
+    #btnGauche
+        position: absolute
+        top: calc( 50% - 25px )
+        left: -25px
+    #btnDroite
+        position: absolute
+        top: calc( 50% - 25px )
+        right: -25px
+    .btnCarousel
         background-color: $accent
+        border: none
+        color: white
         height: 50px
         width: 50px
-        padding: 10px
-        opacity: 1
+        font-size: 22px
         @include transitionClassique()
-        top: calc( 50% - 25px )
-    .ctrl:hover
-        background-color: black
-    .carousel-control-prev
-        left: -25px
-    .carousel-control-next
-        right: -25px
+    .btnCarousel:hover
+        background-color: $noir
+        color: white
 
 footer
     width: 100%
@@ -445,7 +461,7 @@ footer
 
 
 .navActive
-    color: $accent
+    color: $accent !important
 .btnClassique
     color: white
     background-color: $accent
