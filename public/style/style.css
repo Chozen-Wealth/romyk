@@ -11142,6 +11142,9 @@ footer #footerBot p {
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
+  header p {
+    text-wrap: nowrap;
+  }
   .basCarte h3 {
     font-size: 18px;
   }
@@ -11149,6 +11152,20 @@ footer #footerBot p {
     justify-content: center !important;
     flex-wrap: wrap;
     gap: 25px;
+  }
+  #featuresCartes {
+    flex-direction: row !important;
+  }
+  #featuresCartes #featuresCartesTop {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes #featuresCartesBot {
+    flex-direction: column;
+    gap: 25px;
+  }
+  #featuresCartes .carte {
+    width: 100%;
   }
   #footerRight > div:first-of-type {
     flex-direction: column;
@@ -11171,15 +11188,135 @@ footer #footerBot p {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
   }
   #about img {
-    width: 20%;
+    width: 250px;
+    position: absolute;
+    right: 0px;
+    opacity: 0.75;
   }
   #about div {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
   }
   #about div p {
     text-wrap: nowrap;
+  }
+  #carousel {
+    width: 100% !important;
+  }
+  #carousel br {
+    display: none;
+  }
+  #carousel p {
+    margin-left: 10px;
+    margin-right: 10px;
+    text-wrap: wrap !important;
+  }
+}
+@media (min-width: 425px) and (max-width: 768px) {
+  nav ul {
+    display: none;
+  }
+  header section {
+    flex-direction: column-reverse;
+  }
+  header section img {
+    position: absolute;
+    top: 150px;
+    width: 70% !important;
+  }
+  header section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  header section div br {
+    display: none;
+  }
+  header section div h1 {
+    margin-top: 125px;
+    text-align: center;
+  }
+  header section div p {
+    text-align: center;
+    display: inline !important;
+    display: none;
+  }
+  #about {
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+  #about img {
+    width: 250px;
+    position: absolute;
+    right: 0px;
+    opacity: 0.75;
+  }
+  #about div:nth-of-type(2) {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+  }
+  #about div:nth-of-type(2) p {
+    text-wrap: wrap;
+    text-align: center;
+    font-size: 16px;
+  }
+  #about div:nth-of-type(2) p br {
+    display: none;
+  }
+  .titreSection {
+    text-align: center !important;
+    position: relative !important;
+    width: 100% !important;
+  }
+  .titreSection h2 {
+    position: relative !important;
+    text-wrap: wrap;
+  }
+  .titreSection h2::after {
+    left: 50%;
+    margin-top: 60px;
+    width: 10px;
+  }
+  #testimonial {
+    width: 100%;
+  }
+  #carousel {
+    height: 370px !important;
+    width: 80% !important;
+  }
+  #carouselBox {
+    height: 600px;
+  }
+  .carouselObjet p {
+    text-wrap: wrap !important;
+  }
+  .carouselObjet p br {
+    display: none;
+  }
+  #footerTop {
+    flex-direction: column;
+  }
+  #footerTop #footerLeft {
+    width: 90% !important;
+    text-align: center;
+  }
+  #footerTop #footerLeft form {
+    align-items: center;
   }
 }
 /*!
