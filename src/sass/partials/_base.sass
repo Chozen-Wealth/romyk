@@ -311,10 +311,13 @@ header
         margin-top: 50px
         #carouselBox
             @include centerAll()
-            position: relative
+            position: absolute
+            top: 0
             width: 100%
-            height: 100%
+            height: 150%
+            overflow: hidden
             .carouselObjet
+                position: absolute
                 opacity: 0
                 display: flex
                 justify-content: center
@@ -326,12 +329,14 @@ header
                 margin-top: 50px
                 position: absolute
                 top: 0
+                transition: 1s ease
                 p
                     text-wrap: nowrap
                 img
                     margin-top: 25px
             .carouselObjet.active
                 opacity: 1
+                transition: 1s ease
     #btnGauche
         position: absolute
         top: calc( 50% - 25px )

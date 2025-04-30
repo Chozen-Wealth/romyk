@@ -122,6 +122,68 @@ loginBox.addEventListener("click", (e) => {
     e.stopPropagation()
 })
 
+let btnGauche = document.querySelector("#btnGauche")
+let btnDroite = document.querySelector("#btnDroite")
+let carouselObjet = document.querySelectorAll(".carouselObjet")
 
+let indexActuel = 0
+let nombreObjets = carouselObjet.length -1
+console.log(nombreObjets)
+function slideDroite(index) {
+    if (indexActuel >= nombreObjets){
+        index = 0
+        
+        setTimeout(()=>{
+            carouselObjet[index + 2].style.opacity = "0"
+        },500)
+        carouselObjet[index + 2].style.transform = "translateX(-110%)"
+        carouselObjet[index].style.opacity = "1"
+        carouselObjet[index].style.transform = "translateX(-110%)"
+        setTimeout(()=>{
+            carouselObjet[index].style.opacity = "0"
+        },500)
+        carouselObjet[index + 1].style.transition = "0s"
+        carouselObjet[index + 1].style.transform = "translateX(110%)"
+        setTimeout(()=>{
+            carouselObjet[index + 1].style.transition = "1s ease"
+            carouselObjet[index + 1].style.transform = "translateX(0)"
+        },10)
+        carouselObjet[index + 1].style.opacity = "1"
+    }
+    else {
+        if (carouselObjet[index + 2]) {
+            carouselObjet[index + 2].style.transition = "1s ease"
+            setTimeout(()=>{
+                carouselObjet[index + 2].style.opacity = "0"
+            },500)
+            carouselObjet[index + 2].style.transform = "translateX(-110%)"
+        }
+        carouselObjet[index].style.transform = "translateX(-110%)"
+        setTimeout(()=>{
+        carouselObjet[index].style.opacity = "0"
+        },500)
+        carouselObjet[index + 1].style.transition = "0s"
+        carouselObjet[index + 1].style.transform = "translateX(110%)"
+        setTimeout(()=>{
+            carouselObjet[index + 1].style.transition = "1s ease"
+            carouselObjet[index + 1].style.transform = "translateX(0)"
+        },10)
+        carouselObjet[index + 1].style.opacity = "1"
+    }
+    console.log(indexActuel)
+    indexActuel++
 
+    
 
+}
+
+btnDroite.addEventListener("click",()=>{
+    if (indexActuel > nombreObjets) {
+        indexActuel = 0
+        slideDroite(indexActuel)
+    }
+    else {
+        slideDroite(indexActuel)
+    }
+    
+})
