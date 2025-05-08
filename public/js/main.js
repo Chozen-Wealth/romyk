@@ -122,181 +122,76 @@ loginBox.addEventListener("click", (e) => {
     e.stopPropagation()
 })
 
-let btnGauche = document.querySelector("#btnGauche")
-let btnDroite = document.querySelector("#btnDroite")
-let carouselBox = document.querySelector("#carouselBox")
-// let carouselObjet = document.querySelectorAll(".carouselObjet")
+// CAROUSEEEELLLLL
+const carouselItem = document.querySelectorAll('.carousel-item');
+let indexActuel = 0;
 
-btnDroite.addEventListener("click", ()=>{
-    index = 0
-    let firstImg = carouselBox.firstElementChild
-    let nextImg = firstImg.nextElementSibling
+function updateCarouselItem(nextIndex, direction) {
+  if (nextIndex === indexActuel) return;
+
+  const currentSlide = carouselItem[indexActuel];
+  const nextSlide = carouselItem[nextIndex];
+
+  // Positionne le next slide selon la direction donnée
+  nextSlide.style.transition = 'none';
+  nextSlide.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+  nextSlide.classList.add('active');
+
+  // Forcer un reflow
+  nextSlide.offsetHeight;
+
+  // Anime les deux carouselItem en même temps et en remettant la transition pour que ce soit fluide
+  currentSlide.style.transition = 'transform 0.6s ease-in-out';
+  nextSlide.style.transition = 'transform 0.6s ease-in-out';
+  currentSlide.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
+  nextSlide.style.transform = 'translateX(0%)';
+
+  // On remet les éléments à leurs place en enlevant l'animation pour que ce soit instantané
+  setTimeout(() => {
+    currentSlide.classList.remove('active');
+    currentSlide.style.transition = '';
+    currentSlide.style.transform = 'translateX(100%)';
+    nextSlide.style.transition = '';
+  }, 600);
+
+  indexActuel = nextIndex;
+}
+
+// Sélectionne le bouton droit et lui donne un event listener directement
+document.querySelector('.carousel-control-next').addEventListener('click', () => {
+  const nextIndex = (indexActuel + 1) % carouselItem.length;
+  updateCarouselItem(nextIndex, 'left');
+
+    // Je clear l'intervalle ici pour éviter que le carousel tourne pendant que je clique et créer un bug.
+  clearInterval(intervalle)
+  intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
+});
+
+// Sélectionne le bouton gauche et lui donne un event listener directement
+document.querySelector('.carousel-control-prev').addEventListener('click', () => {
+  const nextIndex = (indexActuel - 1 + carouselItem.length) % carouselItem.length;
+  updateCarouselItem(nextIndex, 'right');
+
+  // Je clear l'intervalle ici pour éviter que le carousel tourne pendant que je clique et créer un bug.
+  clearInterval(intervalle)
+  intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
+});
+
+// Première slide active direct
+carouselItem.forEach(slide => slide.classList.remove('active'));
+carouselItem[0].classList.add('active');
+carouselItem[0].style.transform = 'translateX(0%)';
 
 
-    carouselBox.firstElementChild.style.transform = "translateX(-110%)"
-    nextImg.style.transform = "translateX(0px)"
-    carouselBox.firstElementChild.classList.remove("active")
-    setTimeout(() => {
-        carouselBox.append(carouselBox.querySelector("div:first-child"))
-    }, 1000);
-    carouselBox.firstElementChild.classList.add("active")
-    carouselBox.firstElementChild.style.transform = "translateX(0%)"
-    // carouselBox.previousElementSibling.style.transform = "110%"
-    carouselBox.lastElementChild.style.transform = "translateX(-110%)"
-    setTimeout(()=>{
-        carouselBox.lastElementChild.style.transform = "translateX(110%)"
-    },1000)
-})
+// Carousel automatique ici toutes les 5 secondes
 
-
-
-
-
-
-
-
-
-
-
-// let indexActuel = 0
-// let nombreObjets = carouselObjet.length -1
-// console.log(nombreObjets)
-// let indexActuelInversed = 2
-
-
-// function slideDroite(index) {
-//     console.log(indexActuel)
-//     if (indexActuel >= nombreObjets){
-//         index = 0
-//         carouselObjet[index + 2].style.transition = "1s ease"
-//         carouselObjet[index + 2].style.transform = "translateX(-110%)"
-//         setTimeout(()=>{
-//             carouselObjet[index + 2].style.transition = "1s ease"
-//             carouselObjet[index + 2].style.transform = "translateX(-110%)"
-//             carouselObjet[index + 2].style.opacity = "0"
-//         },500)
-//         carouselObjet[index].style.transition = "0s"
-//         carouselObjet[index].style.transform = "translateX(110%)"
-//         carouselObjet[index].style.opacity = "1"
-//         setTimeout(()=>{
-//             carouselObjet[index].style.transition = "1s ease"
-//             carouselObjet[index].style.transform = "translateX(0%)"
-//         },10)
-//         setTimeout(()=>{
-//             carouselObjet[index].style.opacity = "1"
-//         },500)
-//     }
-//     else {
-//         if (carouselObjet[index + 2]) {
-//             carouselObjet[index + 2].style.transition = "1s ease"
-//             setTimeout(()=>{
-//                 carouselObjet[index + 2].style.opacity = "0"
-//             },500)
-//             carouselObjet[index + 2].style.transform = "translateX(-110%)"
-//         }
-//         carouselObjet[index].style.transform = "translateX(-110%)"
-//         setTimeout(()=>{
-//         carouselObjet[index].style.opacity = "0"
-//         },500)
-//         carouselObjet[index + 1].style.transition = "0s"
-//         carouselObjet[index + 1].style.transform = "translateX(110%)"
-//         setTimeout(()=>{
-//             carouselObjet[index + 1].style.transition = "1s ease"
-//             carouselObjet[index + 1].style.transform = "translateX(0)"
-//         },10)
-//         carouselObjet[index + 1].style.opacity = "1"
-//     }
-//     console.log(indexActuel)
-//     indexActuel++
-// }
-
-// function slideGauche(index) {
-//     console.log(indexActuel)
-//     if (indexActuel < nombreObjets){
-//         index = 2
-//         if (carouselObjet[index + 2]) {
-//             carouselObjet[index + 2].style.transition = "1s ease"
-//             carouselObjet[index + 2].style.transform = "translateX(110%)"
-//             setTimeout(()=>{
-//                 carouselObjet[index + 2].style.transition = "1s ease"
-//                 carouselObjet[index + 2].style.transform = "translateX(110%)"
-//                 carouselObjet[index + 2].style.opacity = "0"
-//             },500)
-//         }
-//         carouselObjet[index].style.transition = "0s"
-//         carouselObjet[index].style.transform = "translateX(-110%)"
-//         carouselObjet[index].style.opacity = "1"
-//         setTimeout(()=>{
-//             carouselObjet[index].style.transition = "1s ease"
-//             carouselObjet[index].style.transform = "translateX(0%)"
-//         },10)
-//         setTimeout(()=>{
-//             carouselObjet[index].style.opacity = "1"
-//         },500)
-//     }
-//     else {
-//         if (carouselObjet[index + 2]) {
-//             carouselObjet[index + 2].style.transition = "1s ease"
-//             setTimeout(()=>{
-//                 carouselObjet[index + 2].style.opacity = "0"
-//             },500)
-//             carouselObjet[index + 2].style.transform = "translateX(110%)"
-//         }
-//         carouselObjet[index].style.transform = "translateX(110%)"
-//         setTimeout(()=>{
-//         carouselObjet[index].style.opacity = "0"
-//         },500)
-//         carouselObjet[index + 1].style.transition = "0s"
-//         carouselObjet[index + 1].style.transform = "translateX(-110%)"
-//         setTimeout(()=>{
-//             carouselObjet[index + 1].style.transition = "1s ease"
-//             carouselObjet[index + 1].style.transform = "translateX(0)"
-//         },10)
-//         carouselObjet[index + 1].style.opacity = "1"
-//     }
-//     console.log(indexActuel)
-//     indexActuel -= 1
-// }
-
-// btnDroite.addEventListener("click",()=>{
-//     if (indexActuel > nombreObjets) {
-//         indexActuel = 0
-//         slideDroite(indexActuel)
-//     }
-//     else {
-//         slideDroite(indexActuel)
-//     }  
-// })
-
-// btnGauche.addEventListener("click", ()=>{
-//     if (indexActuel < 0) {
-//         indexActuelInversed = 2
-//         slideGauche(indexActuelInversed)
-//     }
-//     else {
-//         slideGauche(indexActuelInversed)
-//     }  
-// })
-
-// let automatique = setInterval(() => {
-//     if (indexActuel > nombreObjets) {
-//         indexActuel = 0
-//         slideDroite(indexActuel)
-//     }
-//     else {
-//         slideDroite(indexActuel)
-//     }
-//     carousel.addEventListener("mouseenter", ()=>{
-//         clearInterval()
-//         console.log("carousel arrêté")
-//     })
-// }, 5000);
-
-// carousel.addEventListener("mouseenter", ()=>{
-
-//     console.log("carousel arrêté")
-// })
-// carousel.addEventListener("mouseleave", ()=>{
-    
-//     console.log("carousel en marche")
-// })
+intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
