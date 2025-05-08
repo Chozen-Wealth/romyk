@@ -102,53 +102,76 @@ loginBox.addEventListener("click", (e) => {
 })
 
 
+// CAROUSEEEELLLLL
+const carouselItem = document.querySelectorAll('.carousel-item');
+let indexActuel = 0;
 
+function updateCarouselItem(nextIndex, direction) {
+  if (nextIndex === indexActuel) return;
 
+  const currentSlide = carouselItem[indexActuel];
+  const nextSlide = carouselItem[nextIndex];
 
+  // Positionne le next slide selon la direction donnée
+  nextSlide.style.transition = 'none';
+  nextSlide.style.transform = direction === 'left' ? 'translateX(100%)' : 'translateX(-100%)';
+  nextSlide.classList.add('active');
 
+  // Forcer un reflow
+  nextSlide.offsetHeight;
 
-// Carousel
-let carousel = document.querySelector("#carouselExample")
-let inner = carousel.querySelector(".carousel-inner")
-let items = carousel.querySelectorAll(".carousel-item")
+  // Anime les deux carouselItem en même temps et en remettant la transition pour que ce soit fluide
+  currentSlide.style.transition = 'transform 0.6s ease-in-out';
+  nextSlide.style.transition = 'transform 0.6s ease-in-out';
+  currentSlide.style.transform = direction === 'left' ? 'translateX(-100%)' : 'translateX(100%)';
+  nextSlide.style.transform = 'translateX(0%)';
 
-// Carousel bouttons
-let btnNext = carousel.querySelector(".carousel-control-next")
-let btnPrev = carousel.querySelector(".carousel-control-prev")
+  // On remet les éléments à leurs place en enlevant l'animation pour que ce soit instantané
+  setTimeout(() => {
+    currentSlide.classList.remove('active');
+    currentSlide.style.transition = '';
+    currentSlide.style.transform = 'translateX(100%)';
+    nextSlide.style.transition = '';
+  }, 600);
 
-// Index de l'element
-let indexActuel = 0
-let itemsTotal = items.length
-
-// Active l'un et désactive les autres selon l'index actuel qu'on lui donnera quand on va l'appeler.
-function active(index) {
-    items.forEach((item, i) =>{
-        item.classList.remove("active")
-        if (i === index) {
-            item.classList.add("active")
-        }
-    })
+  indexActuel = nextIndex;
 }
 
+// Sélectionne le bouton droit et lui donne un event listener directement
+document.querySelector('.carousel-control-next').addEventListener('click', () => {
+  const nextIndex = (indexActuel + 1) % carouselItem.length;
+  updateCarouselItem(nextIndex, 'left');
 
-btnNext.addEventListener("click", ()=>{
-    // On appelle l'index ici + on incrémente de 1 à chaque clique
-    active(indexActuel)
-    // Si l'index passe à + que le nombre d'éléments dans le carousel, on revient à 0
-    if (indexActuel >= items.length) {
-        indexActuel = 0
-    }
-    items[indexActuel].style.transform = "translateX(-100%)";
-    // items[indexActuel].style.transform = "translateX(100%)";
-    indexActuel++
-})
+    // Je clear l'intervalle ici pour éviter que le carousel tourne pendant que je clique et créer un bug.
+  clearInterval(intervalle)
+  intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
+});
 
-btnPrev.addEventListener("click", ()=>{
-    indexActuel = (indexActuel - 1) % itemsTotal
-    active(indexActuel)
-})
+// Sélectionne le bouton gauche et lui donne un event listener directement
+document.querySelector('.carousel-control-prev').addEventListener('click', () => {
+  const nextIndex = (indexActuel - 1 + carouselItem.length) % carouselItem.length;
+  updateCarouselItem(nextIndex, 'right');
 
-setInterval(()=>{
-    indexActuel = (indexActuel + 1) % itemsTotal
-    active(indexActuel)
-}, 5000)
+  // Je clear l'intervalle ici pour éviter que le carousel tourne pendant que je clique et créer un bug.
+  clearInterval(intervalle)
+  intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
+});
+
+// Première slide active direct
+carouselItem.forEach(slide => slide.classList.remove('active'));
+carouselItem[0].classList.add('active');
+carouselItem[0].style.transform = 'translateX(0%)';
+
+
+// Carousel automatique ici toutes les 5 secondes
+
+intervalle = setInterval(()=>{
+    const nextIndex = (indexActuel + 1) % carouselItem.length;
+    updateCarouselItem(nextIndex, 'left');
+},5000)
