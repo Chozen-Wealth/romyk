@@ -10916,8 +10916,8 @@ header section div img {
   width: fit-content;
   height: fit-content;
   margin-top: 50px;
-  position: absolute;
   top: 0;
+  transform: translateX(110%);
   transition: 1s ease;
 }
 #testimonial #carousel #carouselBox .carouselObjet p {
@@ -10928,6 +10928,7 @@ header section div img {
 }
 #testimonial #carousel #carouselBox .carouselObjet.active {
   opacity: 1;
+  transform: translateX(0);
   transition: 1s ease;
 }
 #testimonial #btnGauche {

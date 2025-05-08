@@ -20,7 +20,7 @@ let header = document.getElementsByTagName("header")[0]
 let basCarte = document.getElementsByClassName("basCarte")
 let carte = document.getElementsByClassName("carte")
 let bulle = document.getElementsByClassName("bulle")
-let carouselExample = document.getElementById("carousel")
+let carousel = document.getElementById("carousel")
 let nav = document.getElementsByTagName("nav")[0]
 let aboutText = document.querySelector(".aboutText")
 let btnMenu = document.getElementById("btnMenu")
@@ -124,134 +124,179 @@ loginBox.addEventListener("click", (e) => {
 
 let btnGauche = document.querySelector("#btnGauche")
 let btnDroite = document.querySelector("#btnDroite")
-let carouselObjet = document.querySelectorAll(".carouselObjet")
+let carouselBox = document.querySelector("#carouselBox")
+// let carouselObjet = document.querySelectorAll(".carouselObjet")
 
-let indexActuel = 0
-let nombreObjets = carouselObjet.length -1
-console.log(nombreObjets)
-let indexActuelInversed = 2
+btnDroite.addEventListener("click", ()=>{
+    index = 0
+    let firstImg = carouselBox.firstElementChild
+    let nextImg = firstImg.nextElementSibling
 
 
-function slideDroite(index) {
-    console.log(indexActuel)
-    if (indexActuel >= nombreObjets){
-        index = 0
-        carouselObjet[index + 2].style.transition = "1s ease"
-        carouselObjet[index + 2].style.transform = "translateX(-110%)"
-        setTimeout(()=>{
-            carouselObjet[index + 2].style.transition = "1s ease"
-            carouselObjet[index + 2].style.transform = "translateX(-110%)"
-            carouselObjet[index + 2].style.opacity = "0"
-        },500)
-        carouselObjet[index].style.transition = "0s"
-        carouselObjet[index].style.transform = "translateX(110%)"
-        carouselObjet[index].style.opacity = "1"
-        setTimeout(()=>{
-            carouselObjet[index].style.transition = "1s ease"
-            carouselObjet[index].style.transform = "translateX(0%)"
-        },10)
-        setTimeout(()=>{
-            carouselObjet[index].style.opacity = "1"
-        },500)
-    }
-    else {
-        if (carouselObjet[index + 2]) {
-            carouselObjet[index + 2].style.transition = "1s ease"
-            setTimeout(()=>{
-                carouselObjet[index + 2].style.opacity = "0"
-            },500)
-            carouselObjet[index + 2].style.transform = "translateX(-110%)"
-        }
-        carouselObjet[index].style.transform = "translateX(-110%)"
-        setTimeout(()=>{
-        carouselObjet[index].style.opacity = "0"
-        },500)
-        carouselObjet[index + 1].style.transition = "0s"
-        carouselObjet[index + 1].style.transform = "translateX(110%)"
-        setTimeout(()=>{
-            carouselObjet[index + 1].style.transition = "1s ease"
-            carouselObjet[index + 1].style.transform = "translateX(0)"
-        },10)
-        carouselObjet[index + 1].style.opacity = "1"
-    }
-    console.log(indexActuel)
-    indexActuel++
-}
-
-function slideGauche(index) {
-    console.log(indexActuel)
-    if (indexActuel < nombreObjets){
-        index = 2
-        if (carouselObjet[index + 2]) {
-            carouselObjet[index + 2].style.transition = "1s ease"
-            carouselObjet[index + 2].style.transform = "translateX(110%)"
-            setTimeout(()=>{
-                carouselObjet[index + 2].style.transition = "1s ease"
-                carouselObjet[index + 2].style.transform = "translateX(110%)"
-                carouselObjet[index + 2].style.opacity = "0"
-            },500)
-        }
-        carouselObjet[index].style.transition = "0s"
-        carouselObjet[index].style.transform = "translateX(-110%)"
-        carouselObjet[index].style.opacity = "1"
-        setTimeout(()=>{
-            carouselObjet[index].style.transition = "1s ease"
-            carouselObjet[index].style.transform = "translateX(0%)"
-        },10)
-        setTimeout(()=>{
-            carouselObjet[index].style.opacity = "1"
-        },500)
-    }
-    else {
-        if (carouselObjet[index + 2]) {
-            carouselObjet[index + 2].style.transition = "1s ease"
-            setTimeout(()=>{
-                carouselObjet[index + 2].style.opacity = "0"
-            },500)
-            carouselObjet[index + 2].style.transform = "translateX(110%)"
-        }
-        carouselObjet[index].style.transform = "translateX(110%)"
-        setTimeout(()=>{
-        carouselObjet[index].style.opacity = "0"
-        },500)
-        carouselObjet[index + 1].style.transition = "0s"
-        carouselObjet[index + 1].style.transform = "translateX(-110%)"
-        setTimeout(()=>{
-            carouselObjet[index + 1].style.transition = "1s ease"
-            carouselObjet[index + 1].style.transform = "translateX(0)"
-        },10)
-        carouselObjet[index + 1].style.opacity = "1"
-    }
-    console.log(indexActuel)
-    indexActuel -= 1
-}
-
-btnDroite.addEventListener("click",()=>{
-    if (indexActuel > nombreObjets) {
-        indexActuel = 0
-        slideDroite(indexActuel)
-    }
-    else {
-        slideDroite(indexActuel)
-    }  
+    carouselBox.firstElementChild.style.transform = "translateX(-110%)"
+    nextImg.style.transform = "translateX(0px)"
+    carouselBox.firstElementChild.classList.remove("active")
+    setTimeout(() => {
+        carouselBox.append(carouselBox.querySelector("div:first-child"))
+    }, 1000);
+    carouselBox.firstElementChild.classList.add("active")
+    carouselBox.firstElementChild.style.transform = "translateX(0%)"
+    // carouselBox.previousElementSibling.style.transform = "110%"
+    carouselBox.lastElementChild.style.transform = "translateX(-110%)"
+    setTimeout(()=>{
+        carouselBox.lastElementChild.style.transform = "translateX(110%)"
+    },1000)
 })
 
-btnGauche.addEventListener("click", ()=>{
-    if (indexActuel < 0) {
-        indexActuelInversed = 2
-        slideGauche(indexActuelInversed)
-    }
-    else {
-        slideGauche(indexActuelInversed)
-    }  
-})
 
-setInterval(() => {
-    if (indexActuel > nombreObjets) {
-        indexActuel = 0
-        slideDroite(indexActuel)
-    }
-    else {
-        slideDroite(indexActuel)
-    }  
-}, 5000);
+
+
+
+
+
+
+
+
+
+// let indexActuel = 0
+// let nombreObjets = carouselObjet.length -1
+// console.log(nombreObjets)
+// let indexActuelInversed = 2
+
+
+// function slideDroite(index) {
+//     console.log(indexActuel)
+//     if (indexActuel >= nombreObjets){
+//         index = 0
+//         carouselObjet[index + 2].style.transition = "1s ease"
+//         carouselObjet[index + 2].style.transform = "translateX(-110%)"
+//         setTimeout(()=>{
+//             carouselObjet[index + 2].style.transition = "1s ease"
+//             carouselObjet[index + 2].style.transform = "translateX(-110%)"
+//             carouselObjet[index + 2].style.opacity = "0"
+//         },500)
+//         carouselObjet[index].style.transition = "0s"
+//         carouselObjet[index].style.transform = "translateX(110%)"
+//         carouselObjet[index].style.opacity = "1"
+//         setTimeout(()=>{
+//             carouselObjet[index].style.transition = "1s ease"
+//             carouselObjet[index].style.transform = "translateX(0%)"
+//         },10)
+//         setTimeout(()=>{
+//             carouselObjet[index].style.opacity = "1"
+//         },500)
+//     }
+//     else {
+//         if (carouselObjet[index + 2]) {
+//             carouselObjet[index + 2].style.transition = "1s ease"
+//             setTimeout(()=>{
+//                 carouselObjet[index + 2].style.opacity = "0"
+//             },500)
+//             carouselObjet[index + 2].style.transform = "translateX(-110%)"
+//         }
+//         carouselObjet[index].style.transform = "translateX(-110%)"
+//         setTimeout(()=>{
+//         carouselObjet[index].style.opacity = "0"
+//         },500)
+//         carouselObjet[index + 1].style.transition = "0s"
+//         carouselObjet[index + 1].style.transform = "translateX(110%)"
+//         setTimeout(()=>{
+//             carouselObjet[index + 1].style.transition = "1s ease"
+//             carouselObjet[index + 1].style.transform = "translateX(0)"
+//         },10)
+//         carouselObjet[index + 1].style.opacity = "1"
+//     }
+//     console.log(indexActuel)
+//     indexActuel++
+// }
+
+// function slideGauche(index) {
+//     console.log(indexActuel)
+//     if (indexActuel < nombreObjets){
+//         index = 2
+//         if (carouselObjet[index + 2]) {
+//             carouselObjet[index + 2].style.transition = "1s ease"
+//             carouselObjet[index + 2].style.transform = "translateX(110%)"
+//             setTimeout(()=>{
+//                 carouselObjet[index + 2].style.transition = "1s ease"
+//                 carouselObjet[index + 2].style.transform = "translateX(110%)"
+//                 carouselObjet[index + 2].style.opacity = "0"
+//             },500)
+//         }
+//         carouselObjet[index].style.transition = "0s"
+//         carouselObjet[index].style.transform = "translateX(-110%)"
+//         carouselObjet[index].style.opacity = "1"
+//         setTimeout(()=>{
+//             carouselObjet[index].style.transition = "1s ease"
+//             carouselObjet[index].style.transform = "translateX(0%)"
+//         },10)
+//         setTimeout(()=>{
+//             carouselObjet[index].style.opacity = "1"
+//         },500)
+//     }
+//     else {
+//         if (carouselObjet[index + 2]) {
+//             carouselObjet[index + 2].style.transition = "1s ease"
+//             setTimeout(()=>{
+//                 carouselObjet[index + 2].style.opacity = "0"
+//             },500)
+//             carouselObjet[index + 2].style.transform = "translateX(110%)"
+//         }
+//         carouselObjet[index].style.transform = "translateX(110%)"
+//         setTimeout(()=>{
+//         carouselObjet[index].style.opacity = "0"
+//         },500)
+//         carouselObjet[index + 1].style.transition = "0s"
+//         carouselObjet[index + 1].style.transform = "translateX(-110%)"
+//         setTimeout(()=>{
+//             carouselObjet[index + 1].style.transition = "1s ease"
+//             carouselObjet[index + 1].style.transform = "translateX(0)"
+//         },10)
+//         carouselObjet[index + 1].style.opacity = "1"
+//     }
+//     console.log(indexActuel)
+//     indexActuel -= 1
+// }
+
+// btnDroite.addEventListener("click",()=>{
+//     if (indexActuel > nombreObjets) {
+//         indexActuel = 0
+//         slideDroite(indexActuel)
+//     }
+//     else {
+//         slideDroite(indexActuel)
+//     }  
+// })
+
+// btnGauche.addEventListener("click", ()=>{
+//     if (indexActuel < 0) {
+//         indexActuelInversed = 2
+//         slideGauche(indexActuelInversed)
+//     }
+//     else {
+//         slideGauche(indexActuelInversed)
+//     }  
+// })
+
+// let automatique = setInterval(() => {
+//     if (indexActuel > nombreObjets) {
+//         indexActuel = 0
+//         slideDroite(indexActuel)
+//     }
+//     else {
+//         slideDroite(indexActuel)
+//     }
+//     carousel.addEventListener("mouseenter", ()=>{
+//         clearInterval()
+//         console.log("carousel arrêté")
+//     })
+// }, 5000);
+
+// carousel.addEventListener("mouseenter", ()=>{
+
+//     console.log("carousel arrêté")
+// })
+// carousel.addEventListener("mouseleave", ()=>{
+    
+//     console.log("carousel en marche")
+// })
